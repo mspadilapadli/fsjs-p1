@@ -24,11 +24,9 @@ function generateArray(row, col) {
     );
 }
 
-// console.log(arrAlfabet, "line 21");
 //* helping function for function countBlockVowel
 function isBlockVowel(block) {
-    let vowel = "AIUEO";
-    return block.every((char) => vowel.includes(char));
+    return block.every((char) => "AIUEO".includes(char));
 }
 // console.log(isBlockVowel(["A", "I", "E", "O"]));
 // console.log(isBlockVowel(["A", "O", "E", "O"]));
@@ -37,7 +35,6 @@ function isBlockVowel(block) {
 function countBlockVowel(board) {
     // console.log(board, "line 31");
     let countVowel = 0;
-    let vowel = "AIUEO";
 
     for (let i = 0; i < board.length - 1; i++) {
         const row = board[i];
@@ -55,7 +52,7 @@ function countBlockVowel(board) {
             }
 
             //* use direct compare
-            // if (blockVowel.every((char) => vowel.includes(char))) {
+            // if (blockVowel.every((char) => "AIUEO".includes(char))) {
             //     countVowel++;
             // }
         }
@@ -65,10 +62,8 @@ function countBlockVowel(board) {
 }
 
 function checkVowelBlock(row, col) {
-    let arrAlfabet = generateArray(row, col);
-    // console.log(arrAlfabet);
-    // let hasilCountBlockVowel = countBlockVowel(arrAlfabet);
-    // return hasilCountBlockVowel;
+    let arrAlfabet = generateArray(+row, +col);
+    return (countBlock = countBlockVowel(arrAlfabet));
 }
 
 let arrExample = [
@@ -80,9 +75,9 @@ let arrExample = [
 ];
 
 let [...input] = process.argv.slice(2);
-let row = +input[0];
-let col = +input[1];
-// console.log(row, col, "from process.argv");
+let [row, col] = input;
+
+// console.log(+row, +col, "from process.argv");
 console.log(checkVowelBlock(row, col));
 //testcase example
 console.log(checkVowelBlock(5, 4));
