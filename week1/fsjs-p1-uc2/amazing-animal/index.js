@@ -30,19 +30,46 @@ class Animal {
 // ruruTheCat.name = "Ruru the cat";
 // console.log(ruruTheCat);
 
-const charlieTheDog = new Animal("Charli", 2, "Dog", ["Meat", "Cake"]);
-console.log(charlieTheDog);
+// const charlieTheDog = new Animal("Charli", 2, "Dog", ["Meat", "Cake"]);
+// console.log(charlieTheDog);
 
 // charlieTheDog.move();
-charlieTheDog.getInformation("Swadikap~!");
+// charlieTheDog.getInformation("Swadikap~!");
 
-const nemoTheFish = new Animal(
-    "Nemo",
-    1,
-    "Fish",
-    ["Pellete", "Moss", "Worm"],
-    0
-);
+// const nemoTheFish = new Animal(
+//     "Nemo",
+//     1,
+//     "Fish",
+//     ["Pellete", "Moss", "Worm"],
+//     0
+// );
+// console.log(nemoTheFish);
+
+// nemoTheFish.move();
+
+//* Amazing animal part 2
+// inheritance
+class Cat extends Animal {
+    constructor(name, age, type, favoriteFoods, totalLegs) {
+        super(name, age, "Cat", favoriteFoods, totalLegs);
+    }
+}
+class Dog extends Animal {
+    constructor(name, age, type, favoriteFoods, totalLegs) {
+        super(name, age, "Dog", favoriteFoods, totalLegs);
+    }
+}
+class Fish extends Animal {
+    constructor(name, age, type, favoriteFoods, totalLegs, totalFins = 5) {
+        super(name, age, "Fish", favoriteFoods, 0);
+        this.totalFins = totalFins;
+    }
+}
+
+const ruruTheCat = new Cat("Ruru", 1, "Cat", ["Salmon", "Tuna", "Chiken"]);
+const charlieTheDog = new Dog("Charli", 2, "Dog", ["Meat", "Cake"]);
+const nemoTheFish = new Fish("Nemo", 1, "Fish", ["Pellete", "Moss", "Worm"], 0);
+
+console.log(ruruTheCat);
+console.log(charlieTheDog);
 console.log(nemoTheFish);
-
-nemoTheFish.move();
