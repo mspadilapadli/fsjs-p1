@@ -8,6 +8,18 @@ class Animal {
         this.favoriteFoods = ["Salmon", "Tuna", "Chicken"];
         this.totalLegs = 4;
     }
+    //method here
+    move() {
+        console.log("I walking and running with my leg");
+    }
+
+    getInformation(greetings) {
+        console.log(`${this.move} 
+            ${greetings} My name ${this.name}
+            My current age is ${this.age} years old
+            I am a ${this.type} 
+            My favorite foods are ${this.favoriteFoods.split(",").join(", ")}`);
+    }
 }
 
 const ruruTheCat = new Animal(); //proses instanciateb
