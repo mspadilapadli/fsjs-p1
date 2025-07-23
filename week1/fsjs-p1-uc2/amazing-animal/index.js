@@ -10,9 +10,7 @@ class Animal {
     }
     //method here
     move() {
-        this.totalLegs
-            ? console.log("I walking and running with my leg")
-            : console.log("I use my fins to swimming");
+        console.log("I walking and running with my leg");
     }
 
     getInformation(greetings) {
@@ -64,6 +62,9 @@ class Fish extends Animal {
         super(name, age, "Fish", favoriteFoods, 0);
         this.totalFins = totalFins;
     }
+    move() {
+        console.log("I use my fins to swimming");
+    }
 }
 
 const ruruTheCat = new Cat("Ruru", 1, "Cat", ["Salmon", "Tuna", "Chiken"]);
@@ -73,3 +74,7 @@ const nemoTheFish = new Fish("Nemo", 1, "Fish", ["Pellete", "Moss", "Worm"], 0);
 console.log(ruruTheCat);
 console.log(charlieTheDog);
 console.log(nemoTheFish);
+
+ruruTheCat.move();
+charlieTheDog.move();
+nemoTheFish.move();
