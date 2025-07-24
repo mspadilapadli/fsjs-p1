@@ -48,6 +48,7 @@ class Animal {
 //* Amazing animal part 2
 // inheritance
 class Cat extends Animal {
+    //super() : inheritancer property from parent
     constructor(name, age, type, favoriteFoods, totalLegs) {
         super(name, age, "Cat", favoriteFoods, totalLegs);
     }
