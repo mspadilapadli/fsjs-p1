@@ -61,6 +61,7 @@ class Dog extends Animal {
 class Fish extends Animal {
     constructor(name, age, type, favoriteFoods, totalLegs, totalFins = 4) {
         super(name, age, "Fish", favoriteFoods, 0);
+        // only fish have property of fins
         this.totalFins = totalFins;
     }
     // polymorpishm overriding
