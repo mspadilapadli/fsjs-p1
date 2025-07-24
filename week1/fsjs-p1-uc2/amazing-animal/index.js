@@ -62,6 +62,7 @@ class Fish extends Animal {
         super(name, age, "Fish", favoriteFoods, 0);
         this.totalFins = totalFins;
     }
+    // polymorpishm overridinggg
     move() {
         console.log("I use my fins to swimming");
     }
