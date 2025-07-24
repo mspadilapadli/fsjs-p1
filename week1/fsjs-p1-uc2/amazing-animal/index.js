@@ -58,11 +58,11 @@ class Dog extends Animal {
     }
 }
 class Fish extends Animal {
-    constructor(name, age, type, favoriteFoods, totalLegs, totalFins = 5) {
+    constructor(name, age, type, favoriteFoods, totalLegs, totalFins = 4) {
         super(name, age, "Fish", favoriteFoods, 0);
         this.totalFins = totalFins;
     }
-    // polymorpishm overridinggg
+    // polymorpishm overriding
     move() {
         console.log("I use my fins to swimming");
     }
