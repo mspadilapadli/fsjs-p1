@@ -1,12 +1,12 @@
 //* release 0
 class MangoTree {
     #deathAge;
-    constructor(healthStatus = true, matureAge = 5) {
+    constructor(matureAge = 5, deathAge, healthStatus = true) {
         this.age = 0;
         this.height = 0;
         this.healthStatus = healthStatus;
         this.matureAge = matureAge;
-        this.#deathAge = this.#deathAge;
+        this.#deathAge = deathAge;
         this.fruits = [];
         this.harvested = { good: 0, bad: 0, count: 0 };
     }
@@ -21,7 +21,8 @@ class MangoTree {
 
     //*release 1
     grow() {
-        if (this.age <= this.#deathAge && this.healthStatus) {
+        if (this.age < this.#deathAge && this.healthStatus) {
+            this.age++;
             this.height += Math.floor(Math.random() * 6) + 1;
             if (this.age >= this.#deathAge) this.healthStatus = false;
         }
@@ -89,9 +90,9 @@ class MangoTree {
     }
 }
 
-const mangoTree = new MangoTree();
-mangoTree.age = 5;
-mangoTree.deathAge = 10;
+// const mangoTree = new MangoTree();
+// mangoTree.age = 5;
+// mangoTree.deathAge = 10;
 
 // console.log(mangoTree);
 // console.log(mangoTree.deathAge);
@@ -116,15 +117,32 @@ const mangoHanyati = new Mango();
 
 // console.log(mangoZainudin);
 // console.log(mangoHanyati);
-mangoTree.produceFruits();
+// mangoTree.produceFruits();
+// // console.log(mangoTree);
+
+// console.log(mangoTree.harvested, "sebelum panen");
+// mangoTree.harvest(); // pohon di panen
+// console.log(mangoTree.fruits);
+// console.log(mangoTree.harvested, "setelah panen");
+// console.log(mangoTree.harvestReport);
+
+// mangoTree.resetHarvest();
+// console.log(mangoTree.fruits, "setlah panen");
+// console.log(mangoTree.harvested, " setelah reset");
+
+//* release 5 : driver code
+let mangoTree = new MangoTree(1, 10); // menanam pohon
 // console.log(mangoTree);
+// console.log(mangoTree.deathAge);
 
-console.log(mangoTree.harvested, "sebelum panen");
-mangoTree.harvest(); // pohon di panen
-console.log(mangoTree.fruits);
-console.log(mangoTree.harvested, "setelah panen");
-console.log(mangoTree.harvestReport);
+do {
+    mangoTree.grow();
+    mangoTree.produceFruits();
+    mangoTree.harvest();
+    console.log(
+        `[Year ${mangoTree.age} Report] Height = ${mangoTree.height} m | Fruits harvested = ${mangoTree.harvestReport}`
+    );
+    mangoTree.resetHarvest();
+} while (mangoTree.healthStatus != false);
 
-mangoTree.resetHarvest();
-console.log(mangoTree.fruits, "setlah panen");
-console.log(mangoTree.harvested, " setelah reset");
+console.log(`The tree has met its end. :sad:`);
