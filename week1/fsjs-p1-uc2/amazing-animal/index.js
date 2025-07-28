@@ -94,6 +94,7 @@ const parrot = new Bird("Rio", 3, ["Fruits", "Seeds"]);
 // charlieTheDog.move();
 // nemoTheFish.move();
 
+//* Agregate Relation
 class SuperPower {
     constructor(name) {
         this.name = name;
@@ -131,6 +132,6 @@ const felixTheCat = new SuperCat(
     mechaClaw
 );
 
-// console.log(felixTheCat);
-// felixTheCat.getInformation("Ohayooo");
-// felixTheCat.superPower.punch();
+console.log(felixTheCat);
+felixTheCat.getInformation("Ohayooo");
+felixTheCat.superPower.punch();
