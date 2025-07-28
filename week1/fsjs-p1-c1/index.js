@@ -67,6 +67,14 @@ class MangoTree {
             },
             { good: 0, bad: 0, count: 0 }
         );
+
+        //* use filter() - readable
+        // this.harvested = {
+        //     good: this.fruits.filter((fruit) => fruit.quality === "good")
+        //         .length,
+        //     bad: this.fruits.filter((fruit) => fruit.quality === "bad").length,
+        //     count: this.fruits.length,
+        // };
     }
 
     get harvestReport() {
