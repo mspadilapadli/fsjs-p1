@@ -31,8 +31,25 @@ const mangoTree = new MangoTree();
 mangoTree.age = 5;
 mangoTree.deathAge = 10;
 
-console.log(mangoTree);
+// console.log(mangoTree);
 // console.log(mangoTree.deathAge);
 
-mangoTree.grow();
-console.log(mangoTree);
+// mangoTree.grow();
+// console.log(mangoTree);
+
+class Mango {
+    constructor() {
+        this.quality = this.randomQuality();
+    }
+
+    randomQuality() {
+        let randomNum = Math.round(Math.random() * 3);
+        return randomNum == 0 ? "bad" : "good";
+    }
+}
+
+const mangoZainudin = new Mango();
+const mangoHanyati = new Mango();
+
+console.log(mangoZainudin);
+console.log(mangoHanyati);

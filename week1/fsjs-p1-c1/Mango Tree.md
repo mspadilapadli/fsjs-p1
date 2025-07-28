@@ -59,6 +59,8 @@ Jika hasil random adalah 0 maka quality = ‘bad’, Jika hasil random adalah 1/
 
 Berikut contoh apabila kalian telah membuat class Mango dengan benar.
 
+![alt text](image-2.png)
+
 Pertanyaan yang perlu dijawab ketika kalian sudah selesai:
 ● Apakah masih ada logic di constructor?
 Apabila ada, kalian harus membuat instance method baru dalam class Mango dan pindahkan logicnya disana ya! Sehingga didalam constructor hanya memanggil instance method tersebut.
