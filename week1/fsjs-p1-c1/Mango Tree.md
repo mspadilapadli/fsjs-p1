@@ -14,7 +14,8 @@ Learning Competencies
 Summary
 Mari membuat aplikasi mainan emulator pohon mangga. Dimana, kita bisa menanam pohon, kemudian menunggu hingga berbuah sampai memanen.
 
-Release 0: Create `MangoTree`
+### Release 0: Create `MangoTree`
+
 Buatlah sebuah class yang bernama MangoTree dan memiliki properti sebagai berikut:
 
 -   age (static value : 0)
@@ -36,7 +37,8 @@ Berikut adalah contoh apabila kalian sudah membuat properti dengan cara yang tep
 
 Note: Pada hasil console.log, private property tidak akan terlihat di terminal. Sehingga pada object instance mango tree property deathAge tidak terlihat.
 
-Release 1: Create `grow` method
+### Release 1: Create `grow` method
+
 Instance method grow() akan menumbuhkan pohon mangga per 1 tahun. Hal yang terjadi ketika pohon tumbuh adalah:
 
 -   Umur pohon bertambah
@@ -48,7 +50,8 @@ Instance method grow() akan menumbuhkan pohon mangga per 1 tahun. Hal yang terja
 
     ![alt text](image-1.png)
 
-Release 2: Create class `Mango`
+### Release 2: Create class `Mango`
+
 Sebelum lanjut mengerjakan method produceFruits(), silakan buat dulu class Mango yang merupakan buah dari `MangoTree`.
 Property yang dimiliki oleh class `Mango`, adalah:
 
@@ -66,14 +69,19 @@ Pertanyaan yang perlu dijawab ketika kalian sudah selesai:
 Apabila ada, kalian harus membuat instance method baru dalam class Mango dan pindahkan logicnya disana ya! Sehingga didalam constructor hanya memanggil instance method tersebut.
 Jika sudah tepat, mari kita lanjut dengan pembuatan method produceFruits.
 
-Release 3: Create `produceFruits` Method
+### Release 3: Create `produceFruits` Method
+
 Method produceFruits() akan membuat pohon mangga berbuah dan menghasilkan buah Mangga saat umurnya sudah mencapai `matureAge`. Saat method ini dijalankan, property `fruits` akan memiliki value beberapa object (instance) dari class Mango, yang jumlahnya ditentukan secara random dari 5-20. Perlu diingat pohon tidak akan berbuah jika kondisinya tidak terpenuhi.
 Buatlah validasi : pada method ini bahwa pohon hanya dapat berbuah ketika pohon masih sehat (belum mati) dan sudah mencapai umur yang ditentukan untuk berbuah.
+
 Berikut contoh apabila kalian telah membuat method produceFruits dengan benar.
 
-Menurut kalian jenis relasi apakah yang dimiliki oleh class MangoTree dengan class Mango ? Jawablah pertanyaan tersebut pada driver code index.js (Release 3) setelah lecture W1D3 AM !
+![alt text](image-3.png)
+
+Menurut kalian jenis relasi apakah yang dimiliki oleh class MangoTree dengan class Mango ? Jawablah pertanyaan tersebut pada driver code index.js (### Release 3) setelah lecture W1D3 AM !
 Setelah pohon menghasilkan buah mangga, maka mari memanen!
-Release 4: Create `harvest` method, getter `harvestReport`, & `resetHarvest` method
+
+### Release 4: Create `harvest` method, getter `harvestReport`, & `resetHarvest` method
 
 1. Instance Method harvest() digunakan untuk memetik buah dari pohon.
    Dalam setiap panen, kalian harus melakukan pencatatan hasil panen pada property harvested. Yang berisi property:
@@ -86,9 +94,9 @@ Release 4: Create `harvest` method, getter `harvestReport`, & `resetHarvest` met
    {good: 10, bad: 5, count: 15} => “15 (10 good, 5 bad)”
 3. Instance Method resetHarvest() digunakan untuk mengosongkan kembali property `fruits` & property `harvested` setelah pohon berhasil dipanen.
    Ingat, setiap kali panen, buah di pohon akan habis.
-   Release 5: Run the driver code
-   Apabila kalian yakin step sebelumnya telah dijalankan dengan tepat. Maka bisa kalian test dengan cara berikut:
-   console.log(`The tree is alive! :smile:`)
+    ### Release 5: Run the driver code
+    Apabila kalian yakin step sebelumnya telah dijalankan dengan tepat. Maka bisa kalian test dengan cara berikut:
+    console.log(`The tree is alive! :smile:`)
 
 let mangoTree = new MangoTree(1, 10) // menanam pohon
 
@@ -118,7 +126,8 @@ The tree has met its end. :sad:
 
 Perhatikan pada output harvested, buatlah getter untuk menampilkan harvested sesuai dengan format.
 
-Release 6: The `AppleTree` and `Apple` Classes
+### Release 6: The `AppleTree` and `Apple` Classes
+
 Mari kita mulai dengan mendefinisikan class AppleTree dan Apple!
 Class `AppleTree` dan `Apple` memiliki property serta method yang sama dengan class `MangoTree` dan `Mango`. Meskipun dalam `AppleTree` pasti ada perbedaan di alur kehidupannya seperti:
 
@@ -129,7 +138,9 @@ Class `AppleTree` dan `Apple` memiliki property serta method yang sama dengan cl
 Membuat class `Apple` dan `AppleTree`, kamu bisa meng-copy code dari class `Mango` dan `MangoTree` sebagai template.
 
 Jika kesulitan, coba cari bantuan dan bertanya ya!
-Release 7: Inheritance - The Parent `FruitTree`, `Fruit` Classes
+
+### Release 7: Inheritance - The Parent `FruitTree`, `Fruit` Classes
+
 Sekarang kita mempunyai dua jenis pohon dengan jenis buahnya yang berbeda pula. Baik class `MangoTree` dan `AppleTree`, atau class `Mango` dan `Apple memiliki code yang hampir mirip. Beberapa bagian bahkan sama persis. 
 Salah satu cara untuk menghindari pengulangan code seperti ini adalah dengan menerapkan inheritance. Copy-lah kode dengan bagian yang sama ke kelas parent atau induk dan namakan kelas parent tersebut sebagai `FruitTree`dan`Fruit`. Buatlah class `FruitTree`dan`Fruit`dalam file`fruitTree.js`
 
@@ -151,7 +162,9 @@ Ketentuan :
 ● AppleTree
 ○ matureAge selalu bernilai 2 tahun dan tidak dapat berubah
 ○ deathAge default 20 tahun, dapat berubah.
-Release 8: The `PearTree` and `Pear` Classes
+
+### Release 8: The `PearTree` and `Pear` Classes
+
 Kita sudah memiliki class `FruitTree` dan `Fruit`, sekarang saatnya membuat class baru `PearTree` yang menghasilkan buah `Pear`.
 Ketentuan :
 ● PearTree
@@ -163,7 +176,8 @@ Tree:
 
 Fruit:
 
-Release 9: Polymorphism
+### Release 9: Polymorphism
+
 Pada method produceFruits MangoTree Release 1, kalian telah diminta untuk menghasilkan buah mangga dengan jumlah random.
 Sekarang, dengan nama method yang sama, gunakan polymorphism overriding untuk mengaplikasikan ke class `MangoTree`, `AppleTree` dan `PearTree`.
 Pada release ini kita akan mengubah 2 hal pada pohon-pohon ini:

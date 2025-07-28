@@ -1,4 +1,4 @@
-//* release 1
+//* release 0
 class MangoTree {
     #deathAge;
     constructor(healthStatus = true, matureAge = 5) {
@@ -19,10 +19,33 @@ class MangoTree {
         this.#deathAge = value;
     }
 
+    //*release 1
     grow() {
         if (this.age <= this.#deathAge && this.healthStatus) {
             this.height += Math.floor(Math.random() * 6) + 1;
             if (this.age >= this.#deathAge) this.healthStatus = false;
+        }
+    }
+
+    //* release 3
+    produceFruits() {
+        if (
+            this.age >= this.matureAge &&
+            this.healthStatus &&
+            this.age <= this.#deathAge
+        ) {
+            // let randomProduces = Math.floor(Math.random() * 16) + 5;
+            // for (let i = 0; i < randomProduces; i++) {
+            //     this.fruits.push(new Mango());
+            // }
+
+            // *one line
+            this.fruits.push(
+                ...Array.from(
+                    { length: Math.floor(Math.random() * 16) + 5 },
+                    () => new Mango()
+                )
+            );
         }
     }
 }
@@ -37,6 +60,7 @@ mangoTree.deathAge = 10;
 // mangoTree.grow();
 // console.log(mangoTree);
 
+//* release 2
 class Mango {
     constructor() {
         this.quality = this.randomQuality();
@@ -51,5 +75,7 @@ class Mango {
 const mangoZainudin = new Mango();
 const mangoHanyati = new Mango();
 
-console.log(mangoZainudin);
-console.log(mangoHanyati);
+// console.log(mangoZainudin);
+// console.log(mangoHanyati);
+mangoTree.produceFruits();
+console.log(mangoTree);
