@@ -94,7 +94,11 @@ Setelah pohon menghasilkan buah mangga, maka mari memanen!
    {good: 10, bad: 5, count: 15} => “15 (10 good, 5 bad)”
 3. Instance Method resetHarvest() digunakan untuk mengosongkan kembali property `fruits` & property `harvested` setelah pohon berhasil dipanen.
    Ingat, setiap kali panen, buah di pohon akan habis.
-    ### Release 5: Run the driver code
+
+![alt text](image-4.png)
+
+### Release 5: Run the driver code
+
     Apabila kalian yakin step sebelumnya telah dijalankan dengan tepat. Maka bisa kalian test dengan cara berikut:
     console.log(`The tree is alive! :smile:`)
 

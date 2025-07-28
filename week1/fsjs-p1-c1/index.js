@@ -48,6 +48,27 @@ class MangoTree {
             );
         }
     }
+
+    //* release 4
+    harvest() {
+        //* use forEach
+        this.harvested.count = this.fruits.length;
+        this.fruits.forEach((fruit) => {
+            if (fruit.quality == "good") this.harvested.good++;
+            else this.harvested.bad++;
+        });
+    }
+
+    get harvestReport() {
+        return `${this.harvested.count} (${this.harvested.good} ${
+            Object.keys(this.harvested)[0]
+        }, ${this.harvested.bad} ${Object.keys(this.harvested)[1]})`;
+    }
+
+    resetHarvest() {
+        this.fruits = [];
+        this.harvested = { good: 0, bad: 0, count: 0 };
+    }
 }
 
 const mangoTree = new MangoTree();
@@ -78,4 +99,14 @@ const mangoHanyati = new Mango();
 // console.log(mangoZainudin);
 // console.log(mangoHanyati);
 mangoTree.produceFruits();
-console.log(mangoTree);
+// console.log(mangoTree);
+
+console.log(mangoTree.harvested, "sebelum panen");
+mangoTree.harvest(); // pohon di panen
+console.log(mangoTree.fruits);
+console.log(mangoTree.harvested, "setelah panen");
+console.log(mangoTree.harvestReport);
+
+mangoTree.resetHarvest();
+console.log(mangoTree.fruits, "setlah panen");
+console.log(mangoTree.harvested, " setelah reset");
