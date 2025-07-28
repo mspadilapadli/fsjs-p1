@@ -52,11 +52,21 @@ class MangoTree {
     //* release 4
     harvest() {
         //* use forEach
-        this.harvested.count = this.fruits.length;
-        this.fruits.forEach((fruit) => {
-            if (fruit.quality == "good") this.harvested.good++;
-            else this.harvested.bad++;
-        });
+        // this.harvested.count = this.fruits.length;
+        // this.fruits.forEach((fruit) => {
+        //     if (fruit.quality == "good") this.harvested.good++;
+        //     else this.harvested.bad++;
+        // });
+
+        //* use reduce()
+        this.harvested = this.fruits.reduce(
+            (acc, fruit) => {
+                fruit.quality == "good" ? acc.good++ : acc.bad++;
+                acc.count++;
+                return acc;
+            },
+            { good: 0, bad: 0, count: 0 }
+        );
     }
 
     get harvestReport() {
