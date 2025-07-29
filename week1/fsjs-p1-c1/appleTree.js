@@ -6,6 +6,16 @@ class AppleTree extends FruitTree {
     constructor(deathAge = 20) {
         super(2, deathAge);
     }
+
+    //* release 9 : polymorphism
+    grow() {
+        if (this.age < this.deathAge && this.healthStatus) {
+            this.age++;
+            // random number with 2 decimal
+            this.height += Number(Math.random().toFixed(2));
+            if (this.age >= this.deathAge) this.healthStatus = false;
+        }
+    }
 }
 
 class Apple extends Fruit {}
