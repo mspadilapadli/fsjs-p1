@@ -7,12 +7,11 @@ class AppleTree extends FruitTree {
         super(2, deathAge);
     }
 
-    //* release 9 : polymorphism
+    //* release 9 : polymorphism - overruding
     grow() {
         if (this.age < this.deathAge && this.healthStatus) {
             this.age++;
-            // random number with 2 decimal
-            this.height += Number(Math.random().toFixed(2));
+            this.height += Number(Math.random().toFixed(2)); // random height 0.1 -0.9 with 2 decimal
             if (this.age >= this.deathAge) this.healthStatus = false;
         }
     }

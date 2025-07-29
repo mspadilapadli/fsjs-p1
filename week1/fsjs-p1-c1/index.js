@@ -24,7 +24,7 @@ class MangoTree {
     grow() {
         if (this.age < this.#deathAge && this.healthStatus) {
             this.age++;
-            this.height += Math.floor(Math.random() * 6) + 1;
+            this.height += Math.floor(Math.random() * 6) + 1; // random 1-6
             if (this.age >= this.#deathAge) this.healthStatus = false;
         }
     }
@@ -44,7 +44,7 @@ class MangoTree {
             // *one line
             this.fruits.push(
                 ...Array.from(
-                    { length: Math.floor(Math.random() * 16) + 5 },
+                    { length: Math.floor(Math.random() * 16) + 5 }, //random 5-20
                     () => new Mango()
                 )
             );
