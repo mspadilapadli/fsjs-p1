@@ -115,6 +115,8 @@ mangoTree.resetHarvest();
 console.log(`The tree has met its end. :sad:`)
 
 Contoh output yang diharapkan:
+
+```
 The tree is alive! :smile:
 [Year 1 Report] Height = 4 m | Fruits harvested = 1 (1 good, 0 bad)
 [Year 2 Report] Height = 10 m | Fruits harvested = 4 (4 good, 0 bad)
@@ -127,6 +129,7 @@ The tree is alive! :smile:
 [Year 9 Report] Height = 44 m | Fruits harvested = 10 (9 good, 1 bad)
 [Year 10 Report] Height = 46 m | Fruits harvested = 0 (0 good, 0 bad)
 The tree has met its end. :sad:
+```
 
 Perhatikan pada output harvested, buatlah getter untuk menampilkan harvested sesuai dengan format.
 
