@@ -153,35 +153,40 @@ Salah satu cara untuk menghindari pengulangan code seperti ini adalah dengan men
 
 Sehingga, class `MangoTree` dan `AppleTree` menjadi sebagai berikut:
 
+![alt text](image-5.png)
+
 FruitTree merupakan parent dari MangoTree dan AppleTree.
 
 Dan class `Mango` dan `Apple` menjadi sebagai berikut:
-
+![alt text](image-6.png)
 Fruit merupakan parent dari Mango dan Apple.
 
 Pertanyaan yang perlu dijawab ketika kalian sudah selesai:
-● Apakah kode kalian masih ada yang berulang? Karena tujuan inheritance dapat membuat kode kalian tidak berulang.
-● Apakah beberapa isi properti dari class `MangoTree`, `AppleTree`, `FruitTree` sudah dinamis? Pikirkan dengan matang property yang dapat menjadi dinamis dalam suatu pohon ketika pertama kali ditanam. (Value property yang dinamis bisa kalian masukkan sebagai parameter constructor)
-Ketentuan :
-● MangoTree
-○ matureAge selalu bernilai 5 tahun dan tidak dapat berubah
-○ deathAge default 10 tahun, dapat berubah.
-● AppleTree
-○ matureAge selalu bernilai 2 tahun dan tidak dapat berubah
-○ deathAge default 20 tahun, dapat berubah.
+
+-   Apakah kode kalian masih ada yang berulang? Karena tujuan inheritance dapat membuat kode kalian tidak berulang.
+-   Apakah beberapa isi properti dari class `MangoTree`, `AppleTree`, `FruitTree` sudah dinamis? Pikirkan dengan matang property yang dapat menjadi dinamis dalam suatu pohon ketika pertama kali ditanam. (Value property yang dinamis bisa kalian masukkan sebagai parameter constructor)
+    Ketentuan :
+-   MangoTree
+    -   matureAge selalu bernilai 5 tahun dan tidak dapat berubah
+    -   deathAge default 10 tahun, dapat berubah.
+-   AppleTree
+    -   matureAge selalu bernilai 2 tahun dan tidak dapat berubah
+    -   deathAge default 20 tahun, dapat berubah.
 
 ### Release 8: The `PearTree` and `Pear` Classes
 
 Kita sudah memiliki class `FruitTree` dan `Fruit`, sekarang saatnya membuat class baru `PearTree` yang menghasilkan buah `Pear`.
 Ketentuan :
-● PearTree
-○ matureAge selalu bernilai 3 tahun dan tidak dapat berubah
-○ deathAge default 15 tahun, dapat berubah.
-○ thorny (value: true) property tambahan yang hanya dimiliki oleh PearTree
+
+-   PearTree
+    -   matureAge selalu bernilai 3 tahun dan tidak dapat berubah
+    -   deathAge default 15 tahun, dapat berubah.
+    -   thorny (value: true) property tambahan yang hanya dimiliki oleh PearTree
 
 Tree:
-
+![alt text](image-9.png)
 Fruit:
+![alt text](image-8.png)
 
 ### Release 9: Polymorphism
 
