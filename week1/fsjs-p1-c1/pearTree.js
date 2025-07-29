@@ -7,6 +7,30 @@ class PearTree extends FruitTree {
         super(3, deathAge);
         this.thorny = thorny;
     }
+    //* release 9 : polymorphism - overruding
+    grow() {
+        if (this.age < this.deathAge && this.healthStatus) {
+            this.age++;
+            this.height += Math.floor(Math.random() * 6) + 3; // random height 3-8
+            if (this.age >= this.deathAge) this.healthStatus = false;
+        }
+    }
+
+    produceFruits() {
+        if (
+            this.age >= this.matureAge &&
+            this.healthStatus &&
+            this.age <= this.deathAge
+        ) {
+            // *one line
+            this.fruits.push(
+                ...Array.from(
+                    { length: 15 }, // buah kosntan 15
+                    () => new Pear()
+                )
+            );
+        }
+    }
 }
 
 const pearTree = new PearTree();
