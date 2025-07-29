@@ -36,7 +36,9 @@ do {
     appleTree.produceFruits();
     appleTree.harvest();
     console.log(
-        `[Year ${appleTree.age} Report] Height = ${appleTree.height} m | Fruits harvested = ${appleTree.harvestReport}`
+        `[Year ${appleTree.age} Report] Height = ${appleTree.height.toFixed(
+            2
+        )} m | Fruits harvested = ${appleTree.harvestReport}`
     );
     appleTree.resetHarvest();
 } while (appleTree.healthStatus != false);

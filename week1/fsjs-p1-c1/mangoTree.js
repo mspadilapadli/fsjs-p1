@@ -18,8 +18,8 @@ const mangoHanyati = new Mango();
 
 //* : driver code
 let mangoTree = new MangoTree(); // menanam pohon
-console.log(mangoTree);
-console.log(mangoTree.deathAge);
+// console.log(mangoTree);
+// console.log(mangoTree.deathAge);
 
 console.log(`The tree is alive! :smile:`);
 do {
