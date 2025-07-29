@@ -1,3 +1,4 @@
+"use strict";
 //* release 0
 class MangoTree {
     #deathAge;
