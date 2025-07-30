@@ -4,10 +4,10 @@ const [command, ...input] = process.argv.slice(2);
 switch (command) {
     case "help":
     case undefined:
-        Controller.show();
+        Controller.showCommand();
         break;
     case "list":
-        console.log("list");
+        Controller.showList();
         break;
     case "add":
         console.log("add ");

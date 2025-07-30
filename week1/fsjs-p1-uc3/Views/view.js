@@ -10,6 +10,12 @@ $ node todo.js delete <task_id>
 $ node todo.js complete <task_id>
 $ node todo.js uncomplete <task_id>`);
     }
+
+    static showList(data) {
+        data.forEach((e) => {
+            console.log(`${e.id}. ${e.task}`);
+        });
+    }
 }
 
 module.exports = View;
