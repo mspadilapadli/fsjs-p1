@@ -31,9 +31,13 @@ class Model {
         const id = data[data.length - 1].id + 1;
         const newData = Factory.createTodo(id, task);
         data.push(newData);
-        data = JSON.stringify(data, null, 4);
-        fs.writeFileSync("./data.json", data);
+        this.saveData(data);
         return newData;
+    }
+
+    static saveData(data) {
+        const dataStr = JSON.stringify(data, null, 4);
+        fs.writeFileSync("./data.json", dataStr);
     }
 }
 
