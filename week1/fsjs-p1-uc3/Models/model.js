@@ -28,7 +28,12 @@ class Model {
 
         const [task] = input;
         let data = this.readData();
-        const id = data[data.length - 1].id + 1;
+        // *id v1
+        //   const id = data[data.length - 1].id + 1;
+
+        //* id v2
+        const id = Math.max(0, ...data.map((todo) => todo.id)) + 1;
+
         const newData = Factory.createTodo(id, task);
         data.push(newData);
         this.saveData(data);
