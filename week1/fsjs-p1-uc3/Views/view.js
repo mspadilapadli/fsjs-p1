@@ -16,6 +16,11 @@ $ node todo.js uncomplete <task_id>`);
             console.log(`${e.id}. ${e.task}`);
         });
     }
+
+    static showAddData(data) {
+        const { id, task } = data;
+        console.log(`Added "${task}" to your TODO list...`);
+    }
 }
 
 module.exports = View;

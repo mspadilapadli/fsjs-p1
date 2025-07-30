@@ -10,7 +10,7 @@ switch (command) {
         Controller.showList();
         break;
     case "add":
-        console.log("add ");
+        Controller.addData(input);
         break;
     case "findById":
         console.log("findById");

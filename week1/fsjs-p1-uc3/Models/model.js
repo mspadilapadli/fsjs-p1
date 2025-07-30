@@ -18,6 +18,23 @@ class Model {
             JSON.parse(fs.readFileSync("./data.json", "utf-8"))
         );
     }
+
+    static add(input) {
+        // read data with fs and conver from string to array
+        // create id for newData
+        // instantiate new data and convert data from array to string
+        // add to data file / db with fs.write
+        // retrun newData for success display add
+
+        const [task] = input;
+        let data = this.readData();
+        const id = data[data.length - 1].id + 1;
+        const newData = Factory.createTodo(id, task);
+        data.push(newData);
+        data = JSON.stringify(data, null, 4);
+        fs.writeFileSync("./data.json", data);
+        return newData;
+    }
 }
 
 module.exports = Model;

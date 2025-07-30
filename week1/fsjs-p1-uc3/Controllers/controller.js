@@ -6,8 +6,12 @@ class Controller {
         View.showCommnd();
     }
     static showList() {
-        let data = Model.readData();
+        const data = Model.readData();
         View.showList(data);
+    }
+    static addData(input) {
+        const newData = Model.add(input);
+        View.showAddData(newData);
     }
 }
 
