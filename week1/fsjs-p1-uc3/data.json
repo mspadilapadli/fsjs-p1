@@ -12,6 +12,6 @@
     {
         "id": 3,
         "task": "Shutdown my computer",
-        "completed": false
+        "completed": true
     }
 ]

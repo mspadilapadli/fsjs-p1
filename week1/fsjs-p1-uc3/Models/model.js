@@ -88,6 +88,20 @@ class Model {
         return data;
     }
 
+    static unCompleted([id]) {
+        // step
+        // baca json (fs-convver string to array)
+        // find id
+        // edit
+        // save json (convert array to string)
+
+        let data = this.readData();
+        const foundId = data.findIndex((todo) => todo.id == id);
+        data[foundId].completed = false;
+        this.saveData(data);
+        return data;
+    }
+
     static saveData(data) {
         const dataStr = JSON.stringify(data, null, 4);
         fs.writeFileSync("./data.json", dataStr);

@@ -25,6 +25,10 @@ class Controller {
         const data = Model.complete(input);
         View.showList(data);
     }
+    static unComplete(input) {
+        const data = Model.unCompleted(input);
+        View.showList(data);
+    }
 }
 
 module.exports = Controller;
