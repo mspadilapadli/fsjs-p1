@@ -13,6 +13,10 @@ class Controller {
         const newData = Model.add(input);
         View.showAddData(newData);
     }
+    static findById(input) {
+        const data = Model.findById(input);
+        View.showList(data);
+    }
 }
 
 module.exports = Controller;

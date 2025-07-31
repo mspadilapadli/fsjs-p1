@@ -12,9 +12,13 @@ $ node todo.js uncomplete <task_id>`);
     }
 
     static showList(data) {
-        data.forEach((e) => {
-            console.log(`${e.id}. ${e.task}`);
-        });
+        if (Array.isArray(data)) {
+            data.forEach((e) => {
+                console.log(`${e.id}. ${e.task}`);
+            });
+        } else {
+            console.log(`${data.id}. ${data.task}`);
+        }
     }
 
     static showAddData(data) {

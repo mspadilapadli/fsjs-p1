@@ -13,7 +13,7 @@ switch (command) {
         Controller.addData(input);
         break;
     case "findById":
-        console.log("findById");
+        Controller.findById(input);
         break;
     case "delete":
         console.log("delete");

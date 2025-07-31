@@ -40,6 +40,18 @@ class Model {
         return newData;
     }
 
+    static findById(input) {
+        //step
+        // baca data json
+        // cari id yg sama
+        // return data (inctance)
+        const [id] = input;
+        const data = this.readData();
+        const foundId = data.find((todo) => todo.id == id);
+        if (!foundId) return `Id tidak ditemukan`;
+        return foundId;
+    }
+
     static saveData(data) {
         const dataStr = JSON.stringify(data, null, 4);
         fs.writeFileSync("./data.json", dataStr);
