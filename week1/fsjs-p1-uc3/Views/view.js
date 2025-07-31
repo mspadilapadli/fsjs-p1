@@ -28,8 +28,11 @@ $ node todo.js uncomplete <task_id>`);
         console.log(`Added "${task}" to your TODO list...`);
     }
     static deletedShow(data) {
-        const { id, task } = data;
-        console.log(`Deleted "${task}" from your TODO list...`);
+        if (typeof data !== "object") console.log(data);
+        else {
+            const { id, task } = data;
+            console.log(`Deleted "${task}" from your TODO list...`);
+        }
     }
 }
 

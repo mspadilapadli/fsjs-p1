@@ -48,7 +48,7 @@ class Model {
         const [id] = input;
         const data = this.readData();
         const foundId = data.find((todo) => todo.id == id);
-        if (!foundId) return `Id tidak ditemukan`;
+        if (!foundId) return `Id not found`; // throw wrror
         return foundId;
     }
 
@@ -60,10 +60,16 @@ class Model {
         // save data del dan save json
         //  return data del
         let data = this.readData();
-        const dataDel = this.findById(id);
+
+        //* splice() & findIndex()
+        const index = data.findIndex((todo) => todo.id == id);
+        if (index == -1) return `Id not found`; // throw error
+        const [dataDel] = data.splice(index, 1);
 
         //* filter()
-        data = data.filter((todo) => todo.id != dataDel.id);
+        // const dataDel = this.findById(id);
+        // data = data.filter((todo) => todo.id != dataDel.id);
+
         this.saveData(data);
         return dataDel;
     }
