@@ -16,7 +16,7 @@ switch (command) {
         Controller.findById(input);
         break;
     case "delete":
-        console.log("delete");
+        Controller.delete(input);
         break;
     case "complete":
         console.log("complete");

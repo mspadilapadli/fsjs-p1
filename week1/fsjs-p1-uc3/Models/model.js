@@ -52,6 +52,22 @@ class Model {
         return foundId;
     }
 
+    static delete([id]) {
+        // step
+        // baca dta json
+        // cari id yang sama
+        // delete id with filter / splice /
+        // save data del dan save json
+        //  return data del
+        let data = this.readData();
+        const dataDel = this.findById(id);
+
+        //* filter()
+        data = data.filter((todo) => todo.id != dataDel.id);
+        this.saveData(data);
+        return dataDel;
+    }
+
     static saveData(data) {
         const dataStr = JSON.stringify(data, null, 4);
         fs.writeFileSync("./data.json", dataStr);

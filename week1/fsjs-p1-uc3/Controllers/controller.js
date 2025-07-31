@@ -17,6 +17,10 @@ class Controller {
         const data = Model.findById(input);
         View.showList(data);
     }
+    static delete(input) {
+        const dataDel = Model.delete(input);
+        View.deletedShow(dataDel);
+    }
 }
 
 module.exports = Controller;
