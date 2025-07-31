@@ -83,6 +83,7 @@ class Model {
 
         let data = this.readData();
         const foundId = data.findIndex((todo) => todo.id == id);
+        if (foundId == -1) return `Id not found`; // throw error
         data[foundId].completed = true;
         this.saveData(data);
         return data;
@@ -97,6 +98,7 @@ class Model {
 
         let data = this.readData();
         const foundId = data.findIndex((todo) => todo.id == id);
+        if (foundId == -1) return `Id not found`; // throw error
         data[foundId].completed = false;
         this.saveData(data);
         return data;
