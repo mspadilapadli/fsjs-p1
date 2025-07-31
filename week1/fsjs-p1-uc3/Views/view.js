@@ -16,8 +16,10 @@ $ node todo.js uncomplete <task_id>`);
             data.forEach((e) => {
                 console.log(`${e.id}. ${e.task}`);
             });
-        } else {
+        } else if (typeof data == "object") {
             console.log(`${data.id}. ${data.task}`);
+        } else {
+            console.log(data);
         }
     }
 
