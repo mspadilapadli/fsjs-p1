@@ -21,6 +21,10 @@ class Controller {
         const dataDel = Model.delete(input);
         View.deletedShow(dataDel);
     }
+    static complete(input) {
+        const data = Model.complete(input);
+        View.showList(data);
+    }
 }
 
 module.exports = Controller;

@@ -1,7 +1,8 @@
 class Todo {
-    constructor(id, task) {
+    constructor(id, task, completed) {
         this.id = id;
         this.task = task;
+        this.completed = completed;
     }
 }
 
@@ -19,11 +20,13 @@ class Factory {
         //       return this.createTodo(id, task);
         //   });
         //* v3 : one line
-        return todos.map(({ id, task }) => this.createTodo(id, task));
+        return todos.map(({ id, task, completed }) =>
+            this.createTodo(id, task, completed)
+        );
     }
 
-    static createTodo(id, task) {
-        return new Todo(id, task);
+    static createTodo(id, task, completed) {
+        return new Todo(id, task, completed);
     }
 }
 module.exports = Factory;

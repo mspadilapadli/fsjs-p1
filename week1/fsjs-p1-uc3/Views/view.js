@@ -14,7 +14,8 @@ $ node todo.js uncomplete <task_id>`);
     static showList(data) {
         if (Array.isArray(data)) {
             data.forEach((e) => {
-                console.log(`${e.id}. ${e.task}`);
+                const completed = e.completed ? `[x]` : `[]`;
+                console.log(`${e.id}.${completed} ${e.task}`);
             });
         } else if (typeof data == "object") {
             console.log(`${data.id}. ${data.task}`);

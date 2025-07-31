@@ -19,13 +19,12 @@ switch (command) {
         Controller.delete(input);
         break;
     case "complete":
-        console.log("complete");
+        Controller.complete(input);
         break;
     case "uncomplete":
-        console.log("uncomplete");
-        break;
+        Controller.unComplete(input);
         break;
     default:
-        console.log("not found");
+        console.log("Commansd not found");
         break;
 }

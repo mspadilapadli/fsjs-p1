@@ -1,14 +1,17 @@
 [
     {
         "id": 1,
-        "task": "Bikin aplikasi"
+        "task": "Bikin aplikasi",
+        "completed": true
     },
     {
         "id": 2,
-        "task": "Main Node.js"
+        "task": "Main Node.js",
+        "completed": false
     },
     {
         "id": 3,
-        "task": "Shutdown my computer"
+        "task": "Shutdown my computer",
+        "completed": false
     }
 ]
