@@ -29,6 +29,10 @@ class Controller {
         const data = Model.unCompleted(input);
         View.showList(data);
     }
+    static status(input, statusComplete) {
+        const data = Model.status(input, statusComplete);
+        View.showList(data);
+    }
 }
 
 module.exports = Controller;

@@ -104,6 +104,16 @@ class Model {
         return data;
     }
 
+    // handle complete & uncomplete dalam 1 method, tapi harus kirim status default dari todo.jsnya
+    static status([id], statusComplete) {
+        let data = this.readData();
+        const foundId = data.findIndex((todo) => todo.id == id);
+        if (foundId == -1) return `Id not found`; // throw error
+        data[foundId].completed = statusComplete;
+        this.saveData(data);
+        return data;
+    }
+
     static saveData(data) {
         const dataStr = JSON.stringify(data, null, 4);
         fs.writeFileSync("./data.json", dataStr);

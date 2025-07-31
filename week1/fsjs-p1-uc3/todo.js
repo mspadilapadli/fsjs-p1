@@ -20,9 +20,13 @@ switch (command) {
         break;
     case "complete":
         Controller.complete(input);
+
+        // Controller.status(input, true); // versi handle by 1 method
         break;
     case "uncomplete":
         Controller.unComplete(input);
+
+        // Controller.status(input, false); // versi handle by 1 method
         break;
     default:
         console.log("Commansd not found");
