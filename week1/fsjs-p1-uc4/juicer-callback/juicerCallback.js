@@ -6,7 +6,9 @@ function fruitChop(fruits, cb) {
     console.log("\n");
 
     //invoce cb
-    cb(fruits);
+    setTimeout(() => {
+        cb(fruits);
+    }, 2000);
 }
 
 //Main function
