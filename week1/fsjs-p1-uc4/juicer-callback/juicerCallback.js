@@ -12,6 +12,18 @@ function fruitChop(fruits, cb) {
     }, 2000);
 }
 
+function juicer(choppedFruits, cb) {
+    console.log("I already have", choppedFruits);
+    console.log(
+        "Please wait.. I'll blend these chopped fruits in blender...\n"
+    );
+
+    // Pastikan menjadi proses async dengan menggunakan setTimeout
+    setTimeout(() => {
+        cb(choppedFruits);
+    }, 4000);
+}
+
 //Main function
 function startJuicing(result) {
     console.log("I wanna make smome fruit juices");
@@ -22,6 +34,11 @@ function startJuicing(result) {
         choppedFruits = choppedFruits.map((fruit) => (fruit += "-chopped"));
         console.log("I'm done chopping!", choppedFruits);
         console.log("\n");
+
+        juicer(fruits, (juicedFruit) => {
+            juicedFruit = juicedFruit.map((fruit) => (fruit += "juice"));
+            console.log("Juice ready to serve!, here your juices", juicedFruit);
+        });
     });
 }
 
