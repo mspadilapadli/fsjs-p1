@@ -11,7 +11,8 @@ Kamu diminta untuk membuat beberapa jus buah, yang tentunya memerlukan waktu unt
 2. Memblender buah
 
 Siapkan function utama bernama startJuicing(). Proses pemotongan buah dan blender akan terjadi didalam function tersebut.
-Release 0: Memotong Buah - Fruit Chop
+
+## Release 0: Memotong Buah - Fruit Chop
 
 1. Function fruitChop() menerima 2 parameter, yaitu array nama buah dan callback. Function ini akan mengembalikan array nama buah yang sudah di chopped.
 
@@ -50,7 +51,8 @@ Ekspektasi Output sesudah proses chop berhasil:
 2. Kode mu masih synchronous! Buatlah proses pemotongan buah atau chopping menjadi asynchronous! Dengan delay waktu 2000 miliseconds. Gunakan method setTimeout yang disediakan Javascript.
    ![alt text](image-2.png)
 
-Release 1: Blender Buah - Juicer
+## Release 1: Blender Buah - Juicer
+
 Sesudah memotong buah, maka buah yang dipotong tersebut kita masukkan ke dalam blender.
 
 Function juicer() menerima 2 parameter, yaitu array nama buah yang telah di chopped dan callback. Function ini akan mengembalikan array nama buah yang sudah di jus. Pastikan proses di dalam function ini dilakukan secara async.
