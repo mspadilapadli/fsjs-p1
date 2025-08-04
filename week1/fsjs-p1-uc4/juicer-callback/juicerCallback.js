@@ -1,5 +1,6 @@
 //
 "use strict";
+
 function fruitChop(fruits, cb) {
     console.log("Please wait.. I'll chop these fruits..");
     console.log(fruits);
@@ -18,6 +19,7 @@ function startJuicing(result) {
 
     // invoke fruitChop
     fruitChop(fruits, (choppedFruits) => {
+        choppedFruits = choppedFruits.map((fruit) => (fruit += "-chopped"));
         console.log("I'm done chopping!", choppedFruits);
         console.log("\n");
     });
