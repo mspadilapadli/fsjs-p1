@@ -49,6 +49,8 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 ## Release 1: More and More...
 
 Diberikan data list of country pada countries.js dalam array seperti berikut
+
+```js
 const countries = [
 'Afghanistan',
 'Albania',
@@ -57,13 +59,14 @@ const countries = [
 'Zambia',
 'Zimbabwe',
 ];
+```
 
 1. Deklarasikan fungsi getFirstTenCountries dan kembalikan array sepuluh negara pertama pada data file countries.js
 2. Deklarasikan fungsi getLastTenCountries yang mengembalikan sepuluh negara terakhir pada data file countries.js
 
 Diberikan data list of country pada countries-object.js dalam array dan kodinglah pada countries-detail.js seperti berikut
 
-```
+```js
 // file countries-object.js
 const countries = [
 {
