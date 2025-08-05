@@ -122,3 +122,29 @@ console.log(hasSevenChar);
 //* 15
 const allHasLand = countries.every((country) => country.includes("land"));
 console.log(allHasLand);
+
+//* 16
+// find() = return value found and undifined if not found
+// findIndex() = return index found and -1 if not found
+
+const found = numbers.find((num) => num === 5);
+const foundInex = numbers.findIndex((num) => num === 5);
+
+console.log(found);
+console.log(foundInex);
+
+//* 17
+const foundCountry = countries.find((country) => country.length == 6);
+console.log(foundCountry);
+
+//* 18
+const foundIndexCountry = countries.findIndex((country) => country.length == 6);
+console.log(foundIndexCountry);
+
+//* 19
+let indexCountry = countries.findIndex((country) => country == "Norwegia");
+console.log(indexCountry);
+
+//* 20
+indexCountry = countries.findIndex((country) => country == "Rusia");
+console.log(indexCountry);
