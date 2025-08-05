@@ -24,17 +24,36 @@ names.forEach((name) => {
 });
 
 //* 2
-let countries2 = countries.map((country) => country.toUpperCase());
+const countries2 = countries.map((country) => country.toUpperCase());
 console.log(countries2);
 
 //* 3
-let numbers2 = numbers.map((number) => number * number);
+const numbers2 = numbers.map((number) => number * number);
 console.log(numbers2);
 
 //* 4
-let names2 = names.map((name) => name.toUpperCase());
+const names2 = names.map((name) => name.toUpperCase());
 console.log(names2);
 
 //* 5
-let landCiuntries = countries.filter((country) => country.includes("land"));
-console.log(landCiuntries);
+const landCountries = countries.filter((country) => country.includes("land"));
+console.log(landCountries);
+
+//* 6
+const sixCharCountries = countries.filter((country) => country.length == 6);
+console.log(sixCharCountries);
+
+//* 7
+const moreSixCharCountries = countries.filter((country) => country.length >= 6);
+console.log(moreSixCharCountries);
+
+//* 8
+const eCharCountries = countries.filter((country) => country[0] == "E");
+console.log(eCharCountries);
+
+//* 9
+let chainingTotal = numbers
+    .filter((num) => num % 2 == 0)
+    .map((num) => (num <= 7 ? num : 0))
+    .reduce((total, num) => (total += num), 0);
+console.log(chainingTotal);
