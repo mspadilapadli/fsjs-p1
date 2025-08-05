@@ -57,3 +57,12 @@ let chainingTotal = numbers
     .map((num) => (num <= 7 ? num : 0))
     .reduce((total, num) => (total += num), 0);
 console.log(chainingTotal);
+
+//* 10
+function getStringList(arr) {
+    return arr.filter((item) => typeof item == "string");
+}
+
+console.log(getStringList(countries));
+console.log(getStringList(names));
+console.log(getStringList(numbers));
