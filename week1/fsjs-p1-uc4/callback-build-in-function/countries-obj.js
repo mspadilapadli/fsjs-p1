@@ -2,7 +2,7 @@ const countries = [
     {
         name: "Thailand",
         capital: "Bangkok",
-        languages: ["Thai"],
+        languages: ["Thai", "Melayu"],
         population: 65327652,
         flag: "https://restcountries.eu/data/tha.svg",
         currency: "Baht",
@@ -10,7 +10,7 @@ const countries = [
     {
         name: "Afghanistan",
         capital: "Kabul",
-        languages: ["Pashto", "Uzbek", "Turkmen"],
+        languages: ["Pashto", "Uzbek", "Turkmen", "English"],
         population: 27657145,
         flag: "https://restcountries.eu/data/afg.svg",
         currency: "Afghan afghani",
@@ -26,7 +26,7 @@ const countries = [
     {
         name: "Norway",
         capital: "Oslo",
-        languages: ["Norwegian", "Sami"],
+        languages: ["Norwegian", "Sami", "English"],
         population: 5223256,
         flag: "https://restcountries.eu/data/nor.svg",
         currency: "Norwegian krone",
@@ -34,7 +34,7 @@ const countries = [
     {
         name: "Åland Islands",
         capital: "Mariehamn",
-        languages: ["Swedish"],
+        languages: ["Swedish", "English"],
         population: 28875,
         flag: "https://restcountries.eu/data/ala.svg",
         currency: "Euro",
@@ -42,7 +42,7 @@ const countries = [
     {
         name: "Mexico",
         capital: "Mexico City",
-        languages: ["Spanish"],
+        languages: ["Spanish", "English"],
         population: 122273473,
         flag: "https://restcountries.eu/data/mex.svg",
         currency: "Mexican peso",
@@ -51,7 +51,7 @@ const countries = [
     {
         name: "Portugal",
         capital: "Lisbon",
-        languages: ["Portuguese"],
+        languages: ["Portuguese", "Melayu"],
         population: 10374822,
         flag: "https://restcountries.eu/data/prt.svg",
         currency: "Euro",
@@ -67,7 +67,7 @@ const countries = [
     {
         name: "Japan",
         capital: "Tokyo",
-        languages: ["Japanese"],
+        languages: ["Japanese", "Melayu"],
         population: 126960000,
         flag: "https://restcountries.eu/data/jpn.svg",
         currency: "Japanese yen",
@@ -76,7 +76,7 @@ const countries = [
     {
         name: "South Korea",
         capital: "Seoul",
-        languages: ["Korean"],
+        languages: ["Korean", "Melayu"],
         population: 51446201,
         flag: "https://restcountries.eu/data/kor.svg",
         currency: "South Korean won",
@@ -84,13 +84,14 @@ const countries = [
     {
         name: "Morocco",
         capital: "Rabat",
-        languages: ["Arabic"],
+        languages: ["Arabic", "Melayu"],
         population: 33337529,
         flag: "https://restcountries.eu/data/mar.svg",
         currency: "Moroccan dirham",
     },
 ];
 
+//* 3
 const sortByCountry = countries.sort((a, b) => a.name.localeCompare(b.name));
 console.log(sortByCountry);
 
@@ -102,4 +103,28 @@ console.log(sortByCapital);
 const sortByPopulation = countries.sort((a, b) => a.population - b.population);
 console.log(sortByPopulation);
 
+//* 4
+
+function fiveFamousLanguage(countries) {
+    const languageCount = {};
+    countries.forEach((country) => {
+        country.languages.forEach((language) => {
+            languageCount[language] = (languageCount[language] || 0) + 1;
+            // if (!languageCount[language]) {
+            //     languageCount[language] = 0;
+            // }
+            // languageCount[language]++;
+        });
+    });
+
+    const sortFamsLang = Object.entries(languageCount)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5);
+    return sortFamsLang.map(([language, frekuensi]) => ({
+        language,
+        frekuensi,
+    }));
+}
+
+console.log(fiveFamousLanguage(countries));
 module.exports = countries;
