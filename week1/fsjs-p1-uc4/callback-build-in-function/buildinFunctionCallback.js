@@ -89,3 +89,36 @@ console.log(sentance);
 //         else return (acc += ` ${country}`);
 //     }, "") + ` adalah negera-negara Eropa Utara`;
 // console.log(sentance);
+
+//* 13
+// * every()
+// The every() method returns true if the function returns true for all elements.
+// The every() method returns false if the function returns false for one element.
+let every1 = numbers.every((num) => num < 11);
+console.log(every1);
+
+let every2 = numbers.every((num) => num > 5);
+console.log(every2);
+
+const allEven = numbers.every((num) => num % 2 === 0);
+console.log(allEven); // false, karena 1, 3, 5 tidak genap
+
+//* some()
+// The some() method returns true (and stops) if the function returns true for one of the array elements.
+// The some() method returns false if the function returns false for all of the array elements.
+let some1 = numbers.some((num) => num > 11);
+console.log(some1);
+
+let some2 = numbers.some((num) => num > 9);
+console.log(some2);
+
+const hasEven = numbers.some((num) => num % 2 === 0);
+console.log(hasEven);
+
+//* 14
+const hasSevenChar = names.some((name) => name.length > 7);
+console.log(hasSevenChar);
+
+//* 15
+const allHasLand = countries.every((country) => country.includes("land"));
+console.log(allHasLand);
