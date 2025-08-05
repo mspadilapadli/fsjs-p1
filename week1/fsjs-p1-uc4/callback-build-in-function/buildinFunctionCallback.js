@@ -66,3 +66,26 @@ function getStringList(arr) {
 console.log(getStringList(countries));
 console.log(getStringList(names));
 console.log(getStringList(numbers));
+
+//* 11
+const total = numbers.reduce((total, num) => (total += num), 0);
+console.log(total);
+
+//* 12
+const sentance =
+    countries.reduce((acc, country, index) => {
+        if (index === 0) return country;
+        else if (index == countries.length - 1) return `${acc} dan ${country}`;
+        else return `${acc}, ${country}`;
+    }, "") + ` adalah negera-negara Eropa Utara`;
+console.log(sentance);
+
+// * not recoemnded , walaupun hasilnya sama, tapi disni acc di tambahkan lalu di return,
+// //karena reduce() seharusnya tidak mengubah akumulator secara langsung, melainkan mengembalikan versi barunya.
+// const sentance =
+//     countries.reduce((acc, country, index) => {
+//         if (index === 0) return (acc += `${country},`);
+//         else if (index == countries.length - 1) return `${acc} dan ${country}`;
+//         else return (acc += ` ${country}`);
+//     }, "") + ` adalah negera-negara Eropa Utara`;
+// console.log(sentance);
