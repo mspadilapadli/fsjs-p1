@@ -100,7 +100,7 @@ const sortByCapital = countries.sort((a, b) =>
 );
 console.log(sortByCapital);
 
-const sortByPopulation = countries.sort((a, b) => a.population - b.population);
+const sortByPopulation = countries.sort((a, b) => b.population - a.population);
 console.log(sortByPopulation);
 
 //* 4
@@ -125,6 +125,16 @@ function fiveFamousLanguage(countries) {
         frekuensi,
     }));
 }
-
 console.log(fiveFamousLanguage(countries));
+
+//* 5
+
+const topFivePopulation = sortByPopulation
+    .slice(0, 5)
+    .map(({ name, population }) => ({
+        name,
+        population,
+    }));
+console.table(topFivePopulation);
+
 module.exports = countries;
