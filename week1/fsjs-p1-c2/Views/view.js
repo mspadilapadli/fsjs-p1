@@ -30,6 +30,10 @@ node app.js ticketInfo <passenger_id> `);
 
         console.table(passengers);
     }
+
+    static showError(err) {
+        console.log(err.message);
+    }
 }
 
 module.exports = View;

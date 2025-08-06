@@ -7,12 +7,20 @@ class Controller {
     }
 
     static async readDataPlanes() {
-        const data = await Model.getPlaneList();
-        View.showPlaneList(data);
+        try {
+            const data = await Model.getPlaneList();
+            View.showPlaneList(data);
+        } catch (error) {
+            View.showError(error);
+        }
     }
     static async showDataPassengers() {
-        const data = await Model.getPassengerList();
-        View.showPassengerList(data);
+        try {
+            const data = await Model.getPassengerList();
+            View.showPassengerList(data);
+        } catch (error) {
+            View.showError(error);
+        }
     }
 }
 
