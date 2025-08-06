@@ -10,6 +10,10 @@ class Controller {
         const data = await Model.getPlaneList();
         View.showPlaneList(data);
     }
+    static async showDataPassengers() {
+        const data = await Model.getPassengerList();
+        View.showPassengerList(data);
+    }
 }
 
 module.exports = Controller;

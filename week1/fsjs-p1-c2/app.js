@@ -10,7 +10,7 @@ switch (command) {
         Controller.readDataPlanes();
         break;
     case "passengerList":
-        Controller.showCommands();
+        Controller.showDataPassengers();
         break;
     case "flightInfo":
         Controller.showCommands();

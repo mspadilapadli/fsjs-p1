@@ -10,11 +10,26 @@ class Plane {
 }
 
 class Passenger {
-    constructor(id, name, gender) {
+    constructor(
+        id,
+        name,
+        gender,
+        airlineName,
+        type,
+        origin,
+        destination,
+        seatNumber
+    ) {
         this.id = id;
         this.name = name;
         this.gender = gender;
-        this.ticket = new Ticket();
+        this.ticket = Factory.createTicket(
+            airlineName,
+            type,
+            origin,
+            destination,
+            seatNumber
+        );
     }
 }
 
@@ -66,13 +81,32 @@ class Economy extends Ticket {
 
 class Factory {
     // planes
-    static createPlanes(params) {
-        return params.map(
-            ({ flightNumber, airlineName, origin, destination }) =>
-                this.createPlane(flightNumber, airlineName, origin, destination)
+    static createPlanes(data) {
+        return data.map(({ flightNumber, airlineName, origin, destination }) =>
+            this.createPlane(flightNumber, airlineName, origin, destination)
         );
     }
     // passengers
+    static createPassengers(data) {
+        return data.map(
+            ({
+                id,
+                name,
+                gender,
+                ticket: { airlineName, type, origin, destination, seatNumber },
+            }) =>
+                this.createPassenger(
+                    id,
+                    name,
+                    gender,
+                    airlineName,
+                    type,
+                    origin,
+                    destination,
+                    seatNumber
+                )
+        );
+    }
 
     // tickets
 
@@ -81,8 +115,26 @@ class Factory {
         return new Plane(flightNumber, airlineName, origin, destination);
     }
     // one passenger
-    static createPassenger(id, name, gender) {
-        return new Passenger(id, name, gender);
+    static createPassenger(
+        id,
+        name,
+        gender,
+        airlineName,
+        type,
+        origin,
+        destination,
+        seatNumber
+    ) {
+        return new Passenger(
+            id,
+            name,
+            gender,
+            airlineName,
+            type,
+            origin,
+            destination,
+            seatNumber
+        );
     }
     // one ticket
     static createTicket(airlineName, type, origin, destination, seatNumber) {

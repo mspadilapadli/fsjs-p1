@@ -15,6 +15,21 @@ node app.js ticketInfo <passenger_id> `);
     static showPlaneList(data) {
         console.table(data);
     }
+
+    static showPassengerList(data) {
+        const passengers = data.map(
+            ({ id, name, gender, ticket: { airlineName } }) => {
+                return {
+                    id,
+                    name,
+                    gender,
+                    airlineName,
+                };
+            }
+        );
+
+        console.table(passengers);
+    }
 }
 
 module.exports = View;

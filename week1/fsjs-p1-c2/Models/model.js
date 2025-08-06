@@ -7,6 +7,12 @@ class Model {
             JSON.parse(await fs.readFile("./data/plane.json", "utf-8"))
         );
     }
+
+    static async getPassengerList() {
+        return Factory.createPassengers(
+            JSON.parse(await fs.readFile("./data/passenger.json", "utf-8"))
+        );
+    }
 }
 
 module.exports = Model;
