@@ -35,9 +35,9 @@ class Controller {
     static async buyTicket(input) {
         try {
             const buyedTicket = await Model.buyTicket(input);
-            // View.showBuyTicket(buyedTicket);
+            View.showBuyTicket(buyedTicket);
         } catch (error) {
-            throw error;
+            View.showError(error);
         }
     }
 }

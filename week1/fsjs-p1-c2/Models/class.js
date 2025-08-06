@@ -48,7 +48,7 @@ class Ticket {
     }
 
     set seatNumber(value) {
-        return this.seatNumber(value);
+        this.#seatNumber = value;
     }
 
     toJSON() {
@@ -57,7 +57,7 @@ class Ticket {
             type: this.type,
             origin: this.origin,
             destination: this.destination,
-            seatNumber: this.seatNumber,
+            seatNumber: this.#seatNumber,
         };
     }
 }

@@ -37,6 +37,7 @@ node app.js ticketInfo <passenger_id> `);
     }
 
     static showBuyTicket(buyed) {
+        const { airlineName, destination, seatNumber } = buyed.ticket;
         console.log(
             `Success buy ticket for seat ${seatNumber} for ${airlineName} destination to ${destination}`
         );

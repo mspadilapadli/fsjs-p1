@@ -1,3 +1,4 @@
+const { config } = require("process");
 const Factory = require("./class");
 const fs = require("fs").promises;
 
@@ -71,16 +72,27 @@ class Model {
             //step
             //get data plane wirh id param
             // get data passengers
+            // check seatNumber availability
             // create id auto increment
             // add passanger
             // save pasangers
 
             const planes = await this.getPlaneList();
             const passengers = await this.getPassengerList();
+            const flightInfo = await this.getFlightInfo(id);
 
             const plane = planes.find(({ flightNumber }) => flightNumber == id);
             if (!plane)
                 throw new Error(`plane not found, please check your input`);
+
+            // check seatNumber
+            const isSeatTaken = flightInfo.passengers.some(
+                (passanger) => passanger.ticket.seatNumber == seatNumber
+            );
+            if (isSeatTaken)
+                throw new Error(
+                    `Seat already been booked, please choose another seat`
+                );
 
             const idPassengger =
                 Math.max(0, ...passengers.map(({ id }) => id)) + 1;
@@ -100,7 +112,7 @@ class Model {
             passengers.push(buyedTicket);
 
             // save / rewrite json
-            fs.writeFile(
+            await fs.writeFile(
                 "./data/passenger.json",
                 JSON.stringify(passengers, null, 4)
             );
