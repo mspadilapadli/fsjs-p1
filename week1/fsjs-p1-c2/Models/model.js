@@ -70,25 +70,32 @@ class Model {
     static async buyTicket([id, name, gender, seatNumber, type]) {
         try {
             //step
-            //get data plane wirh id param
+            //get data flidht info wirh id param
             // get data passengers
-            // check seatNumber availability
+            // validasi seatNumber A1-D8
+            // validasi seatNumber availability
             // create id auto increment
             // add passanger
             // save pasangers
 
-            const planes = await this.getPlaneList();
-            const passengers = await this.getPassengerList();
             const flightInfo = await this.getFlightInfo(id);
+            const passengers = await this.getPassengerList();
 
-            const plane = planes.find(({ flightNumber }) => flightNumber == id);
-            if (!plane)
-                throw new Error(`plane not found, please check your input`);
+            // validasi seatNumber
+            if (
+                !"ABCD".includes(seatNumber[0]) ||
+                seatNumber[2] <= 0 ||
+                seatNumber[2] > 8
+            )
+                throw new Error(
+                    `Invalid seat number! please choose another seat`
+                );
 
-            // check seatNumber
+            // seaNumber avalaibilty check
             const isSeatTaken = flightInfo.passengers.some(
-                (passanger) => passanger.ticket.seatNumber == seatNumber
+                (passenger) => passenger.ticket.seatNumber == seatNumber
             );
+
             if (isSeatTaken)
                 throw new Error(
                     `Seat already been booked, please choose another seat`
@@ -96,28 +103,27 @@ class Model {
 
             const idPassengger =
                 Math.max(0, ...passengers.map(({ id }) => id)) + 1;
-            //Math.max(0, ...passengers.map(({ pasanger }) => pasanger.id)) + 1;
 
-            // add
-            const buyedTicket = Factory.createPassenger(
+            //add
+            const newPassenger = Factory.createPassenger(
                 idPassengger,
                 name,
                 gender,
-                plane.airlineName,
+                flightInfo.airlineName,
                 type,
-                plane.origin,
-                plane.destination,
+                flightInfo.origin,
+                flightInfo.destination,
                 seatNumber
             );
-            passengers.push(buyedTicket);
+            passengers.push(newPassenger);
 
-            // save / rewrite json
+            // save
             await fs.writeFile(
                 "./data/passenger.json",
                 JSON.stringify(passengers, null, 4)
             );
 
-            return buyedTicket;
+            return newPassenger;
         } catch (error) {
             throw error;
         }

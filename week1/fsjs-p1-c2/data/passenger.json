@@ -80,7 +80,19 @@
             "type": "Business",
             "origin": "Jakarta",
             "destination": "Bandung",
-            "seatNumber": "B-6"
+            "seatNumber": "C-4"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Padli",
+        "gender": "Male",
+        "ticket": {
+            "airlineName": "Elang Air",
+            "type": "Business",
+            "origin": "Aceh",
+            "destination": "Surabaya",
+            "seatNumber": "C-4"
         }
     }
 ]
