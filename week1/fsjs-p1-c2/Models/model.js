@@ -65,6 +65,51 @@ class Model {
             throw error;
         }
     }
+
+    static async buyTicket([id, name, gender, seatNumber, type]) {
+        try {
+            //step
+            //get data plane wirh id param
+            // get data passengers
+            // create id auto increment
+            // add passanger
+            // save pasangers
+
+            const planes = await this.getPlaneList();
+            const passengers = await this.getPassengerList();
+
+            const plane = planes.find(({ flightNumber }) => flightNumber == id);
+            if (!plane)
+                throw new Error(`plane not found, please check your input`);
+
+            const idPassengger =
+                Math.max(0, ...passengers.map(({ id }) => id)) + 1;
+            //Math.max(0, ...passengers.map(({ pasanger }) => pasanger.id)) + 1;
+
+            // add
+            const buyedTicket = Factory.createPassenger(
+                idPassengger,
+                name,
+                gender,
+                plane.airlineName,
+                type,
+                plane.origin,
+                plane.destination,
+                seatNumber
+            );
+            passengers.push(buyedTicket);
+
+            // save / rewrite json
+            fs.writeFile(
+                "./data/passenger.json",
+                JSON.stringify(passengers, null, 4)
+            );
+
+            return buyedTicket;
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = Model;

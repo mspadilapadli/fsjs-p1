@@ -31,6 +31,15 @@ class Controller {
             View.showError(error);
         }
     }
+
+    static async buyTicket(input) {
+        try {
+            const buyedTicket = await Model.buyTicket(input);
+            // View.showBuyTicket(buyedTicket);
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = Controller;

@@ -16,7 +16,7 @@ switch (command) {
         Controller.flightInfo(+input);
         break;
     case "buyTicket":
-        Controller.showCommands();
+        Controller.buyTicket(input);
         break;
     case "ticketInfo":
         Controller.showCommands();

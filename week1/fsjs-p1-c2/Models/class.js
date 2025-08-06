@@ -53,11 +53,11 @@ class Ticket {
 
     toJSON() {
         return {
-            airlineName: airlineName,
-            type: type,
-            origin: origin,
-            destination: destination,
-            seatNumber: seatNumber,
+            airlineName: this.airlineName,
+            type: this.type,
+            origin: this.origin,
+            destination: this.destination,
+            seatNumber: this.seatNumber,
         };
     }
 }

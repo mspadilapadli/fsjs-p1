@@ -1,3 +1,5 @@
+const { describe } = require("node:test");
+
 class View {
     static showCommands() {
         console.log(`
@@ -32,6 +34,12 @@ node app.js ticketInfo <passenger_id> `);
     }
     static showFlightInfo(data) {
         console.log(data);
+    }
+
+    static showBuyTicket(buyed) {
+        console.log(
+            `Success buy ticket for seat ${seatNumber} for ${airlineName} destination to ${destination}`
+        );
     }
 
     static showError(err) {
