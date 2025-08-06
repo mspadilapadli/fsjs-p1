@@ -66,7 +66,7 @@ class Economy extends Ticket {
 
 class Factory {
     // planes
-    static createsPlanes(params) {
+    static createPlanes(params) {
         return params.map(
             ({ flightNumber, airlineName, origin, destination }) =>
                 this.createPlane(flightNumber, airlineName, origin, destination)
