@@ -19,7 +19,7 @@ switch (command) {
         Controller.buyTicket(input);
         break;
     case "ticketInfo":
-        Controller.showCommands();
+        Controller.ticketInfo(+input);
         break;
 
     default:

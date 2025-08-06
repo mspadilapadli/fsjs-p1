@@ -40,6 +40,14 @@ class Controller {
             View.showError(error);
         }
     }
+    static async ticketInfo(id) {
+        try {
+            const ticketDetail = await Model.getTicketInfo(id);
+            View.showTicketInfo(ticketDetail);
+        } catch (error) {
+            View.showError(error);
+        }
+    }
 }
 
 module.exports = Controller;

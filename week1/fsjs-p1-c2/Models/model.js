@@ -128,6 +128,23 @@ class Model {
             throw error;
         }
     }
+
+    static async getTicketInfo(id) {
+        try {
+            //step
+            // get data ticket from passager.json
+            // handle not found
+            // return
+
+            const passangers = await this.getPassengerList();
+            const ticket = passangers.find((passager) => passager.id == id);
+            if (!ticket)
+                throw new Error(`Passenger not found, please check yout input`);
+            return ticket;
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = Model;
