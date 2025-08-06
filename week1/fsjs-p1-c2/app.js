@@ -13,7 +13,7 @@ switch (command) {
         Controller.showDataPassengers();
         break;
     case "flightInfo":
-        Controller.showCommands();
+        Controller.flightInfo(+input);
         break;
     case "buyTicket":
         Controller.showCommands();

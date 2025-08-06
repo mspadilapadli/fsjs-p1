@@ -1,3 +1,4 @@
+const { config } = require("process");
 const Model = require("../Models/model");
 const View = require("../Views/view");
 
@@ -18,6 +19,14 @@ class Controller {
         try {
             const data = await Model.getPassengerList();
             View.showPassengerList(data);
+        } catch (error) {
+            View.showError(error);
+        }
+    }
+    static async flightInfo(id) {
+        try {
+            const data = await Model.getFlightInfo(id);
+            View.showFlightInfo(data);
         } catch (error) {
             View.showError(error);
         }

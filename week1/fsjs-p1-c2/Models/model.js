@@ -35,6 +35,36 @@ class Model {
             throw error;
         }
     }
+
+    static async getFlightInfo(id) {
+        try {
+            const planeData = await this.getPlaneList();
+            const passengers = await this.getPassengerList();
+
+            const planeDetail = planeData.find(
+                ({ flightNumber }) => flightNumber == id
+            );
+            if (!planeDetail)
+                throw new Error(
+                    `Fligth number with id ${id} not found, please check your input`
+                );
+
+            //get passangers in plane
+            // planeDetail.passengers = passengers.filter(
+            //     (passenger) =>
+            //         passenger.ticket.airlineName == planeDetail.airlineName
+            // );
+
+            // destruct property in params
+            planeDetail.passengers = passengers.filter(
+                ({ ticket: { airlineName } }) =>
+                    airlineName == planeDetail.airlineName
+            );
+            return planeDetail;
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = Model;

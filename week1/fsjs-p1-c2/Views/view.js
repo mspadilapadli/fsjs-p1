@@ -30,6 +30,9 @@ node app.js ticketInfo <passenger_id> `);
 
         console.table(passengers);
     }
+    static showFlightInfo(data) {
+        console.log(data);
+    }
 
     static showError(err) {
         console.log(err.message);
