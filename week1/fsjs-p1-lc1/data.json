@@ -28,10 +28,10 @@
             },
             {
                 "name": "Tarjo",
-                "ktp": "123999345001",
-                "joined_year": "2021",
+                "ktp": 123999345001,
+                "joined_year": 2023,
                 "position": "Staff",
-                "salary": "10000000"
+                "salary": 10000000
             }
         ]
     },

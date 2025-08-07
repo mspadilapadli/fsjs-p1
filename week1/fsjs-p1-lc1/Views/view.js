@@ -14,12 +14,14 @@ Since: ${since}
 Address: ${address}`);
 
         employees = employees.map((employee) => {
+            let { name, ktp, joined_year, position, salary } = employee;
             return {
-                name: employee.name,
-                ktp: employee.ktp,
-                joined_year: employee.joined_year,
-                position: employee.position,
+                name: name,
+                ktp: ktp,
+                joined_year: joined_year,
+                position: position,
                 lengthOfWork: employee.lengthOfWork(),
+                salary: employee.applySalary(),
             };
         });
         console.table(employees);
@@ -33,10 +35,11 @@ Success add ${data.name} as employee`);
     }
 
     static showError(error) {
-        console.log(`===========
-== Error ==
-===========
-${error.message}`);
+        //         console.log(`===========
+        // == Error ==
+        // ===========
+        // ${error}`);
+        console.log(error);
     }
 }
 

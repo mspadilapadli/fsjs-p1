@@ -14,7 +14,7 @@ class Model {
     static async getEmployees([id]) {
         try {
             const companies = await this.getCompanies();
-            const companyFound = companies.find((company) => (company.id = id));
+            const companyFound = companies.find((company) => company.id == id);
             if (!companyFound)
                 throw new Error(`Company with ${id} is not found `);
 
@@ -34,12 +34,12 @@ class Model {
 
             const newEmployee = Factory.createEmployee(
                 name,
-                ktp,
-                joined_year,
+                +ktp,
+                +joined_year,
                 position,
-                salary
+                +salary
             );
-            console.log(companyFound);
+            companyFound.employees.push(newEmployee);
 
             this.#saveFile(companies);
 

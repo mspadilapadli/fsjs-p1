@@ -26,7 +26,13 @@ class Employee {
     }
 
     lengthOfWork() {
-        return 2025 - this.joined_year;
+        return 2023 - this.joined_year;
+    }
+    applySalary() {
+        const lengthOfWork = this.lengthOfWork();
+        return lengthOfWork >= 1
+            ? (this.#salary += this.#salary * 0.1)
+            : this.#salary;
     }
 
     toJSON() {
@@ -48,6 +54,12 @@ class Staff extends Employee {
 class Manager extends Employee {
     constructor(name, ktp, joined_year, salary) {
         super(name, ktp, joined_year, "Manager", salary);
+    }
+    applySalary() {
+        const lengthOfWork = super.lengthOfWork();
+        return lengthOfWork >= 1
+            ? (this.salary += this.salary * 0.15)
+            : this.salary;
     }
 }
 
