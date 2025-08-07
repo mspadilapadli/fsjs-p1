@@ -25,6 +25,10 @@ class Employee {
         this.#salary = value;
     }
 
+    lengthOfWork() {
+        return 2025 - this.joined_year;
+    }
+
     toJSON() {
         return {
             name: this.name,

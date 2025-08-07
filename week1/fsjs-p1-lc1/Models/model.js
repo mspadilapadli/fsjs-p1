@@ -11,8 +11,14 @@ class Model {
         }
     }
 
-    static async getEmployees() {
+    static async getEmployees([id]) {
         try {
+            const companies = await this.getCompanies();
+            const companyFound = companies.find((company) => (company.id = id));
+            if (!companyFound)
+                throw new Error(`Company with ${id} is not found `);
+
+            return companyFound;
         } catch (error) {
             throw error;
         }
