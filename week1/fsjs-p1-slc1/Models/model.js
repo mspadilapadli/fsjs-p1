@@ -79,7 +79,7 @@ class Model {
                 (customers) => customers.ktp == ktp
             );
             if (indexCustomer == -1)
-                throw new Error(`Customer with ktp ${ktp} doesn't exist`);
+                throw new Error(`Customer with ktp ${ktp} is not found`);
 
             const deletedData = customers.splice(indexCustomer, 1);
 

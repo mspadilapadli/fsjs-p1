@@ -24,7 +24,7 @@ class View {
     }
 
     static showError(error) {
-        console.log(error);
+        console.log(error.message);
     }
 }
 module.exports = View;
