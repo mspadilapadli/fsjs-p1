@@ -13,6 +13,9 @@ class View {
             case "addCustomer":
                 console.log(`Customer ${data.name} added successfully`);
                 break;
+            case "deleteCustomer":
+                console.log(`Bank with ${data.name} deleted successfully`);
+                break;
             default:
                 break;
         }

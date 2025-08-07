@@ -1,7 +1,5 @@
-const { join } = require("path");
 const Controller = require("../Controllers/controller");
 const Factory = require("./class");
-const { json } = require("stream/consumers");
 const fs = require("fs").promises;
 
 class Model {
@@ -26,7 +24,7 @@ class Model {
             const newBank = Factory.createBank(id, name, type);
 
             data.push(newBank);
-            this.saveFile(data);
+            this.#saveFile(data);
 
             return { code: "addBank", data: newBank };
         } catch (error) {
@@ -37,13 +35,12 @@ class Model {
     static async deleteBank([id]) {
         try {
             let { data } = await this.getBankList();
-            const foundBank = data.find((bank) => bank.id == id);
-            if (!foundBank) throw new Error(`Bank with ${id} is not found`);
+            const foundBank = await this.#findBankId(id, data);
 
             //filter
             data = data.filter((bank) => bank.id != foundBank.id);
 
-            this.saveFile(data);
+            this.#saveFile(data);
 
             return { code: "deleteBank", data: foundBank };
         } catch (error) {
@@ -53,8 +50,7 @@ class Model {
     static async addCustomer([id, name, ktp, depositAmount]) {
         try {
             const { data } = await this.getBankList();
-            const bank = data.find((bank) => bank.id == id);
-            if (!bank) throw new Error(`Bank with ${id} is not found`);
+            const bank = await this.#findBankId(id, data);
 
             const newCustomer = Factory.createCustomer(
                 name,
@@ -63,13 +59,15 @@ class Model {
             );
 
             bank.customers.push(newCustomer);
+            console.log(data, "add cus");
 
-            this.saveFile(data);
+            this.#saveFile(data);
             return { code: "addCustomer", data: newCustomer };
         } catch (error) {
             throw error;
         }
     }
+
     static async deleteCustomer() {
         try {
         } catch (error) {
@@ -83,9 +81,19 @@ class Model {
         }
     }
 
-    static async saveFile(data) {
+    //* help method
+    static async #saveFile(data) {
         const dataStr = JSON.stringify(data, null, 4);
         await fs.writeFile("./data.json", dataStr);
+    }
+    static async #findBankId(id, data) {
+        try {
+            const bank = data.find((bank) => bank.id == id);
+            if (!bank) throw new Error(`Bank with ${id} is not found`);
+            return bank;
+        } catch (error) {
+            throw error;
+        }
     }
 }
 module.exports = Model;
