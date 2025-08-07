@@ -52,6 +52,8 @@ class Model {
         try {
             const { data } = await this.getBankList();
             const bank = await this.#findBankId(id, data);
+            if (bank.customers.length >= bank.limit)
+                throw new Error(`You can't add more customer to this Bank`);
 
             const newCustomer = Factory.createCustomer(
                 name,
