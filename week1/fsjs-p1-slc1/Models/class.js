@@ -1,5 +1,5 @@
 class Bank {
-    constructor(id, name, type, limit, customers) {
+    constructor(id, name, type, limit = 10, customers = []) {
         this.id = id;
         this.name = name;
         this.type = type;

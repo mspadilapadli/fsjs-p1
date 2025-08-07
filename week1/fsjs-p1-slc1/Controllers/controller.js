@@ -11,44 +11,44 @@ class Controller {
         }
     }
 
-    static async addBank() {
+    static async addBank(input) {
         try {
-            const data = await Model.addBank();
+            const data = await Model.addBank(input);
             View.showData(data);
         } catch (error) {
             View.showError(error);
         }
     }
-    static async deleteBank() {
+    static async deleteBank(input) {
         try {
-            const data = await Model.deleteBank();
-            View.showData(data);
-        } catch (error) {
-            View.showError(error);
-        }
-    }
-
-    static async addCustomer() {
-        try {
-            const data = await Model.addCustomer();
+            const data = await Model.deleteBank(input);
             View.showData(data);
         } catch (error) {
             View.showError(error);
         }
     }
 
-    static async deleteCustomer() {
+    static async addCustomer(input) {
         try {
-            const data = await Model.deleteCustomer();
+            const data = await Model.addCustomer(input);
             View.showData(data);
         } catch (error) {
             View.showError(error);
         }
     }
 
-    static async detailBank() {
+    static async deleteCustomer(input) {
         try {
-            const data = await Model.detailBank();
+            const data = await Model.deleteCustomer(input);
+            View.showData(data);
+        } catch (error) {
+            View.showError(error);
+        }
+    }
+
+    static async detailBank(input) {
+        try {
+            const data = await Model.detailBank(input);
             View.showData(data);
         } catch (error) {
             View.showError(error);

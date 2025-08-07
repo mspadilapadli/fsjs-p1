@@ -4,6 +4,9 @@ class View {
             case "listBank":
                 console.log(data);
                 break;
+            case "addBank":
+                console.log(`Bank ${data.name} added successfully`);
+                break;
 
             default:
                 break;

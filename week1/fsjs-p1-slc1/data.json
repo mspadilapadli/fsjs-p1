@@ -44,5 +44,12 @@
                 "depositAmount": 5000000
             }
         ]
+    },
+    {
+        "id": 3,
+        "name": "Bank SUMUT",
+        "type": "LocalBank",
+        "limit": 10,
+        "customers": []
     }
 ]
