@@ -19,9 +19,9 @@ class Controller {
             View.showError(error);
         }
     }
-    static async deleteBank(input) {
+    static async deleteBank(id) {
         try {
-            const data = await Model.deleteBank(input);
+            const data = await Model.deleteBank(id);
             View.showData(data);
         } catch (error) {
             View.showError(error);

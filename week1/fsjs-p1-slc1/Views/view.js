@@ -7,6 +7,9 @@ class View {
             case "addBank":
                 console.log(`Bank ${data.name} added successfully`);
                 break;
+            case "deleteBank":
+                console.log(`Bank with ${data.name} deleted successfully`);
+                break;
 
             default:
                 break;
