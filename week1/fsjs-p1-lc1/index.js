@@ -9,7 +9,7 @@ switch (command) {
     case "listEmployee":
         Controller.getEmployees(input);
         break;
-    case "addEmployee":
+    case "add":
         Controller.addEmployee(input);
         break;
     default:

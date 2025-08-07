@@ -2,6 +2,7 @@ class View {
     static showCompanies(data) {
         console.log(data);
     }
+
     static showEmployees(data) {
         //   console.log(data);
         let { name, since, address, employees } = data;
@@ -25,10 +26,17 @@ Address: ${address}`);
     }
 
     static showAdd(data) {
-        console.log(data);
+        console.log(`=============
+== SUCCESS ==
+=============
+Success add ${data.name} as employee`);
     }
+
     static showError(error) {
-        console.log(error);
+        console.log(`===========
+== Error ==
+===========
+${error.message}`);
     }
 }
 

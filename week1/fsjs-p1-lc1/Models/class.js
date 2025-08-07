@@ -33,9 +33,9 @@ class Employee {
         return {
             name: this.name,
             ktp: this.ktp,
-            joined_year: this.this.joined_year,
-            position: this.this.position,
-            salary: this.this.#salary,
+            joined_year: this.joined_year,
+            position: this.position,
+            salary: this.#salary,
         };
     }
 }

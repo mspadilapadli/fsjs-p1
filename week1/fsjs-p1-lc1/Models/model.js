@@ -23,8 +23,27 @@ class Model {
             throw error;
         }
     }
-    static async addEmployee() {
+    static async addEmployee(input) {
         try {
+            // console.log(input);
+            const [id, name, ktp, joined_year, position, salary] = input;
+            const companies = await this.getCompanies();
+
+            const companyFound = companies.find((company) => (company.id = id));
+            if (!companyFound) throw new Error(`Company not found `);
+
+            const newEmployee = Factory.createEmployee(
+                name,
+                ktp,
+                joined_year,
+                position,
+                salary
+            );
+            console.log(companyFound);
+
+            this.#saveFile(companies);
+
+            return newEmployee;
         } catch (error) {
             throw error;
         }
