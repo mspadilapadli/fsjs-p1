@@ -18,6 +18,12 @@ class View {
                     `Customer with name ${data.name} deleted successfully`
                 );
                 break;
+            case "detailBank":
+                const customers = data.map(({ name, ktp, depositAmount }) => {
+                    return { name, ktp, depositAmount };
+                });
+                console.table(customers);
+                break;
             default:
                 break;
         }

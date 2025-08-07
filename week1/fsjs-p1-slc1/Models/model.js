@@ -90,8 +90,12 @@ class Model {
             throw error;
         }
     }
-    static async detailBank() {
+    static async detailBank([id]) {
         try {
+            const { data } = await this.getBankList();
+            const foundBank = await this.#findBankId(id, data);
+
+            return { code: "detailBank", data: foundBank.customers };
         } catch (error) {
             throw error;
         }

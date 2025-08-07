@@ -46,9 +46,9 @@ class Controller {
         }
     }
 
-    static async detailBank(input) {
+    static async detailBank(id) {
         try {
-            const data = await Model.detailBank(input);
+            const data = await Model.detailBank(id);
             View.showData(data);
         } catch (error) {
             View.showError(error);
