@@ -47,6 +47,7 @@ class Model {
             throw error;
         }
     }
+
     static async addCustomer([id, name, ktp, depositAmount]) {
         try {
             const { data } = await this.getBankList();
@@ -59,7 +60,6 @@ class Model {
             );
 
             bank.customers.push(newCustomer);
-            console.log(data, "add cus");
 
             this.#saveFile(data);
             return { code: "addCustomer", data: newCustomer };
@@ -68,8 +68,24 @@ class Model {
         }
     }
 
-    static async deleteCustomer() {
+    static async deleteCustomer([id, ktp]) {
         try {
+            const { data } = await this.getBankList();
+            const foundBank = await this.#findBankId(id, data);
+
+            //findIndex() && splice()
+            const customers = foundBank.customers;
+            const indexCustomer = customers.findIndex(
+                (customers) => customers.ktp == ktp
+            );
+            if (indexCustomer == -1)
+                throw new Error(`Customer with ktp ${ktp} doesn't exist`);
+
+            const deletedData = customers.splice(indexCustomer, 1);
+
+            this.#saveFile(data);
+
+            return { code: "deleteCustomer", data: deletedData };
         } catch (error) {
             throw error;
         }
