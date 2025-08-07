@@ -1,11 +1,11 @@
-const Model = require("../Model/model");
-const View = require("../Models/model");
+const Model = require("../Models/model");
+const View = require("../Views/view");
 
 class Controller {
     static async getCompanies() {
         try {
             const data = await Model.getCompanies();
-            View.showCompnaies(data);
+            View.showCompanies(data);
         } catch (error) {
             View.showError(error);
         }
