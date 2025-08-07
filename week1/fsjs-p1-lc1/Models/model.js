@@ -3,6 +3,9 @@ const fs = require("fs").promises;
 class Model {
     static async getCompanies() {
         try {
+            return Factory.createCompanies(
+                JSON.parse(await fs.readFile("./data.json", "utf-8"))
+            );
         } catch (error) {
             throw error;
         }
