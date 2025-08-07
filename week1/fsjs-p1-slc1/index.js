@@ -13,7 +13,7 @@ switch (command) {
     case "deleteBank":
         Controller.deleteBank(input);
         break;
-    case "addaCustomer":
+    case "addCustomer":
         Controller.addCustomer(input);
         break;
     case "deleteCustomer":

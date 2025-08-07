@@ -50,8 +50,22 @@ class Model {
             throw error;
         }
     }
-    static async addCustomer() {
+    static async addCustomer([id, name, ktp, depositAmount]) {
         try {
+            const { data } = await this.getBankList();
+            const bank = data.find((bank) => bank.id == id);
+            if (!bank) throw new Error(`Bank with ${id} is not found`);
+
+            const newCustomer = Factory.createCustomer(
+                name,
+                ktp,
+                +depositAmount
+            );
+
+            bank.customers.push(newCustomer);
+
+            this.saveFile(data);
+            return { code: "addCustomer", data: newCustomer };
         } catch (error) {
             throw error;
         }
