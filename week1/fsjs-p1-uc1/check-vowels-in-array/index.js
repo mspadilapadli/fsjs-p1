@@ -16,60 +16,80 @@ function generateArray(row, col) {
     //* mau coba nested forEach ? untuk tast case ini for sudah paling optimal , jika ingin menggunakan forEach, maka harus buat array kosong dulu untuk aksesnya -> Array.from({length: row}).forEach(()=>{....})
 
     //* build in function Array.from()
-    // return Array.from({ length: row }, () =>
-    //     Array.from(
-    //         { length: col },
-    //         () => dictionary[Math.floor(Math.random() * dictionary.length)]
-    //     )
-    // );
+    return Array.from({ length: row }, () =>
+        Array.from(
+            { length: col },
+            () => dictionary[Math.floor(Math.random() * dictionary.length)]
+        )
+    );
 }
 
 //* one linver ASCII alfabet
-const generateArray = (row, col) =>
-    Array.from({ length: row }, () =>
-        Array.from(
-            { length: col },
-            () => String.fromCharCode(Math.floor(Math.random() * 26) + 65) //ASCII alfabet
-        )
-    );
+// const generateArray = (row, col) =>
+//     Array.from({ length: row }, () =>
+//         Array.from(
+//             { length: col },
+//             () => String.fromCharCode(Math.floor(Math.random() * 26) + 65) //ASCII alfabet
+//         )
+//     );
 
-console.log(generateArray(5, 4));
+// console.log(generateArray(5, 4));
 //* helping function for function countBlockVowel
-function isBlockVowel(block) {
-    return block.every((char) => "AIUEO".includes(char));
-}
+const isBlockVowel = (block) => block.every((char) => "AIUEO".includes(char));
+
 // console.log(isBlockVowel(["A", "I", "E", "O"]));
 // console.log(isBlockVowel(["A", "O", "E", "O"]));
 // console.log(isBlockVowel(["A", "J", "E", "O"]));
 
-function countBlockVowel(board) {
-    // console.log(board, "line 31");
+// function countBlockVowel(board) {
+//     // console.log(board, "line 31");
+//     let countVowel = 0;
+
+//     for (let i = 0; i < board.length - 1; i++) {
+//         const row = board[i];
+//         for (let j = 0; j < row.length - 1; j++) {
+//             const char = row[j];
+//             let blockVowel = [
+//                 board[i][j],
+//                 board[i][j + 1],
+//                 board[i + 1][j],
+//                 board[i + 1][j + 1],
+//             ];
+//             //* use helping function isBlockVowel
+//             if (isBlockVowel(blockVowel)) {
+//                 countVowel++;
+//             }
+
+//             //* use direct compare
+//             // if (blockVowel.every((char) => "AIUEO".includes(char))) {
+//             //     countVowel++;
+//             // }
+//         }
+//     }
+
+//     return countVowel;
+// }
+
+//* better performance,
+const countBlockVowel = (board) => {
     let countVowel = 0;
+    const isVowel = (char) => "AIUEO".includes(char);
 
     for (let i = 0; i < board.length - 1; i++) {
         const row = board[i];
         for (let j = 0; j < row.length - 1; j++) {
-            const char = row[j];
-            let blockVowel = [
-                board[i][j],
-                board[i][j + 1],
-                board[i + 1][j],
-                board[i + 1][j + 1],
-            ];
-            //* use helping function isBlockVowel
-            if (isBlockVowel(blockVowel)) {
+            //* direct check, tidak membuat array baru lagi , dan tidak menggunakan .every lagi untuk looping check
+            if (
+                isVowel(board[i][j]) &&
+                isVowel(board[i][j + 1]) &&
+                isVowel(board[i + 1][j]) &&
+                isVowel(board[i + 1][j + 1])
+            )
                 countVowel++;
-            }
-
-            //* use direct compare
-            // if (blockVowel.every((char) => "AIUEO".includes(char))) {
-            //     countVowel++;
-            // }
         }
     }
-
     return countVowel;
-}
+};
 
 function checkVowelBlock(row, col) {
     let arrAlfabet = generateArray(+row, +col);
