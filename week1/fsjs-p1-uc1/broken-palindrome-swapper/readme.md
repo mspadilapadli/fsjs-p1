@@ -1,6 +1,7 @@
 # Broken Palindrome Swapper
 
 Challenge Debugging
+
 Broken Palindrome Swapper
 Learning Competencies
 ● Melakukan debugging di JavaScript

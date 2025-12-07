@@ -1,10 +1,12 @@
 # Check Vowels in Array
 
 Kerjakan meggunakan function, ikuti requirement soal pada gdrive phase 1.
+
 Check Vowels in Array
 Learning Competencies
-● Mengimplementasikan JavaScript untuk memecahkan masalah.
-● Mampu memecahkan masalah didalam nested array
+
+-   Mengimplementasikan JavaScript untuk memecahkan masalah.
+-   Mampu memecahkan masalah didalam nested array
 
 Summary
 Kamu diminta untuk membuat program yang berfungsi untuk mencari sekelompok string yang isinya berupa hanya huruf vokal pada array 2 dimensi dengan ukuran 5x3. Adapun ukuran kelompok string yang dicari merupakan sub-array berukuran 2x2 dari array yang diberikan. Tugas kamu adalah mencari tahu berapa banyak blok berukuran 2x2 yang ditemukan
