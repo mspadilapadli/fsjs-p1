@@ -5,7 +5,7 @@ function generateArray(row, col) {
     // for (let i = 0; i < row; i++) {
     //     let tempArr = [];
     //     for (let j = 0; j < col; j++) {
-    //         let indexDict = Math.floor(Math.random() * 26);
+    //         let indexDict = Math.floor(Math.random() * 26);g
     //         let randomAlfabet = dictionary[indexDict];
     //         tempArr.push(randomAlfabet);
     //     }
@@ -16,14 +16,24 @@ function generateArray(row, col) {
     //* mau coba nested forEach ? untuk tast case ini for sudah paling optimal , jika ingin menggunakan forEach, maka harus buat array kosong dulu untuk aksesnya -> Array.from({length: row}).forEach(()=>{....})
 
     //* build in function Array.from()
-    return Array.from({ length: row }, () =>
-        Array.from(
-            { length: col },
-            () => dictionary[Math.floor(Math.random() * 26)]
-        )
-    );
+    // return Array.from({ length: row }, () =>
+    //     Array.from(
+    //         { length: col },
+    //         () => dictionary[Math.floor(Math.random() * dictionary.length)]
+    //     )
+    // );
 }
 
+//* one linver ASCII alfabet
+const generateArray = (row, col) =>
+    Array.from({ length: row }, () =>
+        Array.from(
+            { length: col },
+            () => String.fromCharCode(Math.floor(Math.random() * 26) + 65) //ASCII alfabet
+        )
+    );
+
+console.log(generateArray(5, 4));
 //* helping function for function countBlockVowel
 function isBlockVowel(block) {
     return block.every((char) => "AIUEO".includes(char));
