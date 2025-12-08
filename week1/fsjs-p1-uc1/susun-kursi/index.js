@@ -42,4 +42,18 @@ function printSeats(seats) {
     }
 }
 
+// managePerson(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"], 3);
+
+//* Array.from({length: ??}, ()=>)
+// const managePerson = (arr, rowSeats) => {
+//     const seat = Array.from({ length: rowSeats }, () => []);
+//     for (let i = 0; i < arr.length; i++) {
+//         const el = arr[i];
+//         const rowIndex = i % rowSeats;
+//         seat[rowIndex].push(el);
+//     }
+//     // console.log(seat);
+//     seat.forEach((seat, i) => console.log(`Baris ${i} : `, seat));
+// };
+
 managePerson(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"], 3);

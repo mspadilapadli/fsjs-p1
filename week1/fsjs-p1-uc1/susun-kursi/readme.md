@@ -4,7 +4,8 @@ Challenge Debugging
 
 Susun Kursi
 Learning Competencies
-● Melakukan debugging di JavaScript
+
+-   Melakukan debugging di JavaScript
 
 Summary
 Code ini bertujuan untuk menyusun kursi secara vertikal dengan jumlah baris yang sudah di tentukan.
