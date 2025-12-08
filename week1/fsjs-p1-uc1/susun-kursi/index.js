@@ -56,4 +56,13 @@ function printSeats(seats) {
 //     seat.forEach((seat, i) => console.log(`Baris ${i} : `, seat));
 // };
 
+//*reduce()
+// const managePerson = (arr, rowSeats) => {
+//     const seat = arr.reduce(
+//         (acc, person, i) => (acc[i % rowSeats].push(person), acc),
+//         Array.from({ length: rowSeats }, () => [])
+//     );
+//     seat.forEach((seat, i) => console.log(`Baris ${i} : `, seat));
+// };
+
 managePerson(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"], 3);
