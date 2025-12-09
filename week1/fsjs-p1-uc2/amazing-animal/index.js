@@ -132,6 +132,6 @@ const felixTheCat = new SuperCat(
     mechaClaw
 );
 
-console.log(felixTheCat);
+// console.log(felixTheCat);
 felixTheCat.getInformation("Ohayooo");
 felixTheCat.superPower.punch();
