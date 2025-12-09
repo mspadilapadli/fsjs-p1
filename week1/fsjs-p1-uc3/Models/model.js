@@ -4,7 +4,7 @@ const Factory = require("./class");
 class Model {
     static readData() {
         //*step
-        // read data with fs and conver from string to array
+        // read data with fs and convert from string to array
         // instantaite data
         // return data inctance
 
@@ -20,6 +20,7 @@ class Model {
     }
 
     static add(input) {
+        //* algoritma
         // read data with fs and conver from string to array
         // create id for newData
         // instantiate new data and convert data from array to string
