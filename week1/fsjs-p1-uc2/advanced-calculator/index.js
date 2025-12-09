@@ -2,7 +2,7 @@
 const Calculator = require("./calculator");
 // execute Calculator in here
 const cal = new Calculator();
-// // console.log(cal);
+
 // let result = cal.add(100).subtract(50).multiply(2).divide(5);
 // console.log(result);
 let result = cal
