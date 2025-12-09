@@ -21,7 +21,7 @@ class Calculator {
         if (num !== 0) {
             this.result /= num;
         } else {
-            console.log("ga bisa di bagi 0 kang");
+            console.log("ga bisa di bagi 0 ya kang");
         }
         return this;
     }
