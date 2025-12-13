@@ -61,7 +61,7 @@ class Dog extends Animal {
     }
 }
 class Fish extends Animal {
-    constructor(name, age, favoriteFoods, totalLegs = 0, totalFins = 5) {
+    constructor(name, age, favoriteFoods, totalLegs, totalFins = 5) {
         super(name, age, "Fish", favoriteFoods, totalLegs);
         // only fish have property of fins
         this.totalFins = totalFins;
