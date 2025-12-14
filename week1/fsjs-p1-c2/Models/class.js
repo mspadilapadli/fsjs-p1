@@ -1,5 +1,5 @@
-const fs = require("fs");
-// const fs = require("fs").promises;
+// const fs = require("fs");
+const fs = require("fs").promises;
 // const fs = require("fs/promises");
 
 class Plane {
@@ -158,7 +158,30 @@ class Factory {
 }
 
 //*testing readFileSync
-const data = JSON.parse(fs.readFileSync("../data/plane.json", "utf-8"));
-console.log(Factory.createPlanes(data));
+// const data = JSON.parse(fs.readFileSync("../data/plane.json", "utf-8"));
+// console.log(Factory.createPlanes(data));
+
+// * testing readFile (promise)
+// const testing = async () => {
+// const data = JSON.parse(await fs.readFile("../data/plane.json", "utf-8"));
+
+// jika hanya sekedar testing readFile promise bisa lansung di clog
+// console.log(Factory.createPlanes(data));
+
+// jika di return maka harus await atau catch untuk menampikan data akhirnya
+// return Factory.createPlanes(data);
+// };
+
+// testing(); // jika hanya sekedar testing readFile promise
+
+// jika di return maka harus await atau catch untuk menampikan data akhirnya
+// (async () => {
+//     try {
+//         const result = await testing();
+//         console.log(result);
+//     } catch (err) {
+//         console.error(err);
+//     }
+// })();
 
 module.exports = Factory;
