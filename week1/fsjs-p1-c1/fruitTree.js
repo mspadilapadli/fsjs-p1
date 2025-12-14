@@ -74,11 +74,17 @@ class FruitTree {
         //     count: this.fruits.length,
         // };
     }
+    // get harvestReport() {
+    //     const { count, good, bad } = this.harvested;
+    //     return `${count} (${good} good, ${bad} bad)`;
+    // }
 
+    // dinamis
     get harvestReport() {
-        return `${this.harvested.count} (${this.harvested.good} ${
-            Object.keys(this.harvested)[0]
-        }, ${this.harvested.bad} ${Object.keys(this.harvested)[1]})`;
+        const { count, ...categories } = this.harvested;
+        return `${count} (${Object.entries(categories)
+            .map(([label, amount]) => `${amount} ${label}`)
+            .join(", ")})`;
     }
 
     resetHarvest() {
@@ -127,9 +133,15 @@ const fruitHanyati = new Fruit();
 // console.log(fruitTree.harvested, " setelah reset");
 
 //* driver code
-// let fruitTree = new FruitTree(1, 10); // menanam pohon
-// console.log(fruitTree);
-// console.log(fruitTree.deathAge);
+let fruitTree = new FruitTree(1, 10); // menanam pohon
+// fruitTree.grow();
+// fruitTree.grow();
+// fruitTree.grow();
+// fruitTree.grow();
+// fruitTree.grow();
+// fruitTree.produceFruits();
+console.log(fruitTree);
+console.log(fruitTree.deathAge);
 
 // do {
 //     fruitTree.grow();
