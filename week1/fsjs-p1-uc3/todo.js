@@ -29,6 +29,6 @@ switch (command) {
         // Controller.status(input, false); // versi handle by 1 method
         break;
     default:
-        console.log("Commansd not found");
+        console.log("Command not found");
         break;
 }
