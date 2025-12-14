@@ -6,6 +6,28 @@ class MangoTree extends FruitTree {
     constructor(deathAge = 10) {
         super(5, deathAge);
     }
+
+    //*override agar hasil dari fruit itu instace class Mango, bukan general Fruit
+    produceFruits() {
+        if (
+            this.age >= this.matureAge &&
+            this.healthStatus &&
+            this.age <= this.deathAge
+        ) {
+            // let randomProduces = Math.floor(Math.random() * 16) + 5;
+            // for (let i = 0; i < randomProduces; i++) {
+            //     this.fruits.push(new Fruit());
+            // }
+
+            // *one line
+            this.fruits.push(
+                ...Array.from(
+                    { length: Math.floor(Math.random() * 16) + 5 },
+                    () => new Mango()
+                )
+            );
+        }
+    }
 }
 
 class Mango extends Fruit {}
