@@ -80,18 +80,18 @@ class MangoTree {
     }
 
     // convert statis, masih hardcodde good & bad, but oke for requirement
-    get harvestReport() {
-        const { count, good, bad } = this.harvested;
-        return `${count} (${good} good, ${bad} bad)`;
-    }
-
-    //dinamis
     // get harvestReport() {
-    //     const { count, ...categories } = this.harvested;
-    //     return `${count} (${Object.entries(categories)
-    //         .map(([label, amount]) => `${amount} ${label}`)
-    //         .join(", ")})`;
+    //     const { count, good, bad } = this.harvested;
+    //     return `${count} (${good} good, ${bad} bad)`;
     // }
+
+    // dinamis
+    get harvestReport() {
+        const { count, ...categories } = this.harvested;
+        return `${count} (${Object.entries(categories)
+            .map(([label, amount]) => `${amount} ${label}`)
+            .join(", ")})`;
+    }
 
     resetHarvest() {
         this.fruits = [];
