@@ -13,19 +13,22 @@ $ node todo.js uncomplete <task_id>`);
 
     static showList(data) {
         if (Array.isArray(data)) {
+            //handle data list
             data.forEach((e) => {
                 const completed = e.completed ? `[x]` : `[]`;
                 console.log(`${e.id}.${completed} ${e.task}`);
             });
         } else if (typeof data == "object") {
+            // handle output findById
             console.log(`${data.id}. ${data.task}`);
         } else {
+            // handle output not found/string
             console.log(data);
         }
     }
 
     static showAddData(data) {
-        const { id, task } = data;
+        const { task } = data;
         console.log(`Added "${task}" to your TODO list...`);
     }
     static deletedShow(data) {
