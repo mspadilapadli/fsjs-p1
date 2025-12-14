@@ -79,11 +79,19 @@ class MangoTree {
         // };
     }
 
+    // convert statis, masih hardcodde good & bad, but oke for requirement
     get harvestReport() {
-        return `${this.harvested.count} (${this.harvested.good} ${
-            Object.keys(this.harvested)[0]
-        }, ${this.harvested.bad} ${Object.keys(this.harvested)[1]})`;
+        const { count, good, bad } = this.harvested;
+        return `${count} (${good} good, ${bad} bad)`;
     }
+
+    //dinamis
+    // get harvestReport() {
+    //     const { count, ...categories } = this.harvested;
+    //     return `${count} (${Object.entries(categories)
+    //         .map(([label, amount]) => `${amount} ${label}`)
+    //         .join(", ")})`;
+    // }
 
     resetHarvest() {
         this.fruits = [];
@@ -119,7 +127,7 @@ const mangoHanyati = new Mango();
 // console.log(mangoZainudin);
 // console.log(mangoHanyati);
 // mangoTree.produceFruits();
-// // console.log(mangoTree);
+// console.log(mangoTree);
 
 // console.log(mangoTree.harvested, "sebelum panen");
 // mangoTree.harvest(); // pohon di panen
@@ -133,8 +141,8 @@ const mangoHanyati = new Mango();
 
 //* release 5 : driver code
 let mangoTree = new MangoTree(1, 10); // menanam pohon
-// console.log(mangoTree);
-// console.log(mangoTree.deathAge);
+console.log(mangoTree);
+console.log(mangoTree.deathAge);
 
 do {
     mangoTree.grow();
