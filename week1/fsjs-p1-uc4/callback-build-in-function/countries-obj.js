@@ -105,26 +105,68 @@ console.log(sortByPopulation);
 
 //* 4
 
-function fiveFamousLanguage(countries) {
-    const languageCount = {};
-    countries.forEach((country) => {
-        country.languages.forEach((language) => {
-            languageCount[language] = (languageCount[language] || 0) + 1;
-            // if (!languageCount[language]) {
-            //     languageCount[language] = 0;
-            // }
-            // languageCount[language]++;
-        });
-    });
+// function fiveFamousLanguage(countries) {
+//     const languageCount = {};
+//     countries.forEach((country) => {
+//         country.languages.forEach((language) => {
+//             languageCount[language] = (languageCount[language] || 0) + 1;
+//             // if (!languageCount[language]) {
+//             //     languageCount[language] = 0;
+//             // }
+//             // languageCount[language]++;
+//         });
+//     });
 
-    const sortFamsLang = Object.entries(languageCount)
-        .sort((a, b) => b[1] - a[1])
+// sorting arrayofArray
+//     const sortFamsLang = Object.entries(languageCount)
+//         .sort((a, b) => b[1] - a[1])
+//         .slice(0, 5);
+//     return sortFamsLang.map(([language, frekuensi]) => ({
+//         language,
+//         frekuensi,
+//     }));
+// }
+//* 4 reduce()
+const fiveFamousLanguage = (countries) => {
+    //*step
+    // get all languages with map() & flat(),
+    // count frequency lang with reduce
+    // convert return value reduce (obj) to arrOfarr with  Object.entries
+    // convert arrofArr to arrOfObj with map()
+    // last, sort and slice
+
+    // let langs = countries.map(({ languages }) => languages).flat();
+    // const data = langs.reduce((acc, language) => {
+    //     acc[language] = (acc[language] || 0) + 1;
+    //     return acc;
+    // }, {});
+    // const objToArr = Object.entries(data);
+    // const arrOfObj = objToArr.map(([language, frequency]) => ({
+    //     language,
+    //     frequency,
+    // }));
+    // const result = arrOfObj
+    //     .sort((a, b) => b.frequency - a.frequency)
+    //     .slice(0, 5);
+    // return result;
+
+    // *chaining
+    return Object.entries(
+        countries
+            .map(({ languages }) => languages)
+            .flat()
+            .reduce(
+                (acc, language) => (
+                    (acc[language] = (acc[language] || 0) + 1), acc
+                ),
+                {}
+            )
+    )
+        .map(([language, frequency]) => ({ language, frequency }))
+        .sort((a, b) => b.frequency - a.frequency) // sorting arrOfObj
         .slice(0, 5);
-    return sortFamsLang.map(([language, frekuensi]) => ({
-        language,
-        frekuensi,
-    }));
-}
+};
+
 console.log(fiveFamousLanguage(countries));
 
 //* 5
