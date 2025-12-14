@@ -1,5 +1,7 @@
 const fs = require("fs");
 // const fs = require("fs").promises;
+// const fs = require("fs/promises");
+
 class Plane {
     constructor(flightNumber, airlineName, origin, destination) {
         this.flightNumber = flightNumber;
@@ -154,6 +156,9 @@ class Factory {
             );
     }
 }
-// console.log(Factory.createsPlanes(data));
+
+//*testing readFileSync
+const data = JSON.parse(fs.readFileSync("../data/plane.json", "utf-8"));
+console.log(Factory.createPlanes(data));
 
 module.exports = Factory;
