@@ -9,9 +9,9 @@ class Model {
         // return data inctance
 
         //* v1
-        //   let data = JSON.parse(fs.readFileSync("./data.json", "utf-8"));
-        //   data = Factory.createTodos(data);
-        //   return data;
+        // let data = JSON.parse(fs.readFileSync("./data.json", "utf-8"));
+        // data = Factory.createTodos(data);
+        // return data;
 
         //* v2 one line
         return Factory.createTodos(
@@ -35,7 +35,7 @@ class Model {
         //* id v2
         const id = Math.max(0, ...data.map((todo) => todo.id)) + 1;
 
-        const newData = Factory.createTodo(id, task);
+        const newData = Factory.createTodo(id, task, false);
         data.push(newData);
         this.saveData(data);
         return newData;
