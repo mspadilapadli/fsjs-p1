@@ -84,4 +84,9 @@ class Factory {
     }
 }
 
+//*testing
+//Syncronous
+const data = JSON.parse(fs.readFileSync("../data.json", "utf-8"));
+console.log(Factory.createCustomers(data));
+
 module.exports = Factory;
