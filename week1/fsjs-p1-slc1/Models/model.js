@@ -1,4 +1,3 @@
-const Controller = require("../Controllers/controller");
 const Factory = require("./class");
 const fs = require("fs").promises;
 
@@ -35,10 +34,15 @@ class Model {
     static async deleteBank([id]) {
         try {
             let { data } = await this.getBankList();
-            const foundBank = await this.#findBankId(id, data);
 
-            //filter
+            //*filter
+            const foundBank = await this.#findBankId(id, data);
             data = data.filter((bank) => bank.id != foundBank.id);
+
+            //* findIndex & splice
+            // const indexDel = data.findIndex((bank) => bank.id == id);
+            // if (indexDel == -1) throw new Error(`Bank with ${id} is not found`);
+            // const dataDel = data.splice(indexDel, 1);
 
             this.#saveFile(data);
 
@@ -103,7 +107,7 @@ class Model {
         }
     }
 
-    //* help method
+    //* help method (private method)
     static async #saveFile(data) {
         const dataStr = JSON.stringify(data, null, 4);
         await fs.writeFile("./data.json", dataStr);
