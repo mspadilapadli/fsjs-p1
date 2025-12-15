@@ -86,7 +86,24 @@ class Factory {
 
 //*testing
 //Syncronous
-const data = JSON.parse(fs.readFileSync("../data.json", "utf-8"));
-console.log(Factory.createCustomers(data));
+// const data = JSON.parse(fs.readFileSync("../data.json", "utf-8"));
+// console.log(Factory.createCustomers(data));
 
+//Async
+// const testing = async () => {
+//     const data = JSON.parse(await fs.readFile("../data.json", "utf-8"));
+//     // console.log(Factory.createBanks(data));
+//     return Factory.createBanks(data);
+// };
+// //if testing console.log
+// testing();
+
+// //await
+// (async () => {
+//     try {
+//         console.log(await testing());
+//     } catch (error) {
+//         console.log(error);
+//     }
+// })();
 module.exports = Factory;
