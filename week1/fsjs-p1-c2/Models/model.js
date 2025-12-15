@@ -1,4 +1,3 @@
-const { config } = require("process");
 const Factory = require("./class");
 const fs = require("fs").promises;
 
@@ -56,7 +55,7 @@ class Model {
             //         passenger.ticket.airlineName == planeDetail.airlineName
             // );
 
-            // destruct property in params
+            //*destruct property in params
             planeDetail.passengers = passengers.filter(
                 ({ ticket: { airlineName } }) =>
                     airlineName == planeDetail.airlineName
@@ -91,9 +90,16 @@ class Model {
                     `Invalid seat number! please choose another seat`
                 );
 
-            // seaNumber avalaibilty check
-            const isSeatTaken = flightInfo.passengers.some(
-                (passenger) => passenger.ticket.seatNumber == seatNumber
+            //*seaNumber avalaibilty check
+
+            //* some
+            // const isSeatTaken = flightInfo.passengers.some(
+            //     (passenger) => passenger.ticket.seatNumber == seatNumber
+            // );
+
+            //*find
+            const isSeatTaken = flightInfo.passengers.find(
+                ({ ticket }) => ticket.seatNumber === seatNumber
             );
 
             if (isSeatTaken)
