@@ -8,7 +8,7 @@ class View {
                 console.log(`Bank ${data.name} added successfully`);
                 break;
             case "deleteBank":
-                console.log(`Bank with id${data.name} deleted successfully`);
+                console.log(`Bank with name ${data.name} deleted successfully`);
                 break;
             case "addCustomer":
                 console.log(`Customer ${data.name} added successfully`);

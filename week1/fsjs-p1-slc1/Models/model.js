@@ -87,7 +87,7 @@ class Model {
             if (indexCustomer == -1)
                 throw new Error(`Customer with ktp ${ktp} is not found`);
 
-            const deletedData = customers.splice(indexCustomer, 1);
+            const [deletedData] = customers.splice(indexCustomer, 1);
 
             this.#saveFile(data);
 
