@@ -43,8 +43,10 @@ node app.js ticketInfo <passenger_id> `);
         );
     }
 
-    static showTicketInfo(ticket) {
-        const { airlineName, type, destination, seatNumber } = ticket.ticket;
+    static showTicketInfo({
+        ticket: { airlineName, type, destination, seatNumber },
+    }) {
+        // const { airlineName, type, destination, seatNumber } = ticket.ticket;
         console.log(
             `This ${type} area booked for ${airlineName} to ${destination} with seat ${seatNumber} `
         );
