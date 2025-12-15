@@ -81,11 +81,8 @@ class Model {
             const passengers = await this.getPassengerList();
 
             // validasi seatNumber
-            if (
-                !"ABCD".includes(seatNumber[0]) ||
-                seatNumber[2] <= 0 ||
-                seatNumber[2] > 8
-            )
+            const [seatCol, seatRow] = seatNumber.split("-");
+            if (!"ABCD".includes(seatCol) || seatRow <= 0 || seatRow > 8)
                 throw new Error(
                     `Invalid seat number! please choose another seat`
                 );
