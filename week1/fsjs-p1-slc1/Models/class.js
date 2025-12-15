@@ -1,3 +1,6 @@
+// const fs = require("fs");
+const fs = require("fs").promises;
+
 class Bank {
     constructor(id, name, type, limit = 10, customers = []) {
         this.id = id;
@@ -56,11 +59,15 @@ class Factory {
             this.createBank(id, name, type, limit, customers)
         );
     }
-    static createCustomers(arr) {
-        return arr.map(({ name, ktp, depositAmount }) =>
+    // static createCustomers(arr) {
+    //     return arr.map(({ name, ktp, depositAmount }) =>
+    //         this.createCustomer(name, ktp, depositAmount)
+    //     );
+    // }
+    static createCustomers = (arr) =>
+        arr.map(({ name, ktp, depositAmount }) =>
             this.createCustomer(name, ktp, depositAmount)
         );
-    }
 
     static createBank(id, name, type, limit, customers) {
         if (type == "LocalBank") {
