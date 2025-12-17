@@ -2,7 +2,7 @@
 const fs = require("fs").promises;
 
 class Bank {
-    constructor(id, name, type, limit = 10, customers = []) {
+    constructor(id, name, type, limit, customers = []) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -12,13 +12,13 @@ class Bank {
 }
 
 class LocalBank extends Bank {
-    constructor(id, name, limit, customers) {
-        super(id, name, "LocalBank", limit, customers);
+    constructor(id, name, customers) {
+        super(id, name, "LocalBank", 3, customers);
     }
 }
 class NationalBank extends Bank {
-    constructor(id, name, limit, customers) {
-        super(id, name, "NationalBank", limit, customers);
+    constructor(id, name, customers) {
+        super(id, name, "NationalBank", 5, customers);
     }
 }
 
@@ -55,8 +55,8 @@ class Customer {
 
 class Factory {
     static createBanks(arr) {
-        return arr.map(({ id, name, type, limit, customers }) =>
-            this.createBank(id, name, type, limit, customers)
+        return arr.map(({ id, name, type, customers }) =>
+            this.createBank(id, name, type, customers)
         );
     }
     // static createCustomers(arr) {
@@ -69,13 +69,13 @@ class Factory {
             this.createCustomer(name, ktp, depositAmount)
         );
 
-    static createBank(id, name, type, limit, customers) {
+    static createBank(id, name, type, customers) {
         if (type == "LocalBank") {
-            return new LocalBank(id, name, limit, customers);
+            return new LocalBank(id, name, customers);
         } else if (type == "NationalBank") {
-            return new NationalBank(id, name, limit, customers);
+            return new NationalBank(id, name, customers);
         } else {
-            return new Bank(id, name, type, limit, customers);
+            return new Bank(id, name, type, customers);
         }
     }
 
