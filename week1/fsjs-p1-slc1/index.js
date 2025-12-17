@@ -1,5 +1,4 @@
 const Controller = require("./Controllers/controller");
-const { addBank } = require("./Models/model");
 
 const [command, ...input] = process.argv.slice(2);
 
