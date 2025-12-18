@@ -89,10 +89,11 @@ class Factory {
     }
 }
 
-//test
+// testing factory method with sync fs in commonjs
+// Sync
 // const fs = require("fs");
-// let data = JSON.parse(fs.readFileSync("../data.json", "utf-8"));
-// data = Factory.createCompanies(data);
-// console.log(data[0].employees);
+// const companies = JSON.parse(fs.readFileSync("../data.json", "utf-8"));
+// console.log(Factory.createCompanies(companies));
+// console.log(Factory.createEmployees(companies[0].employees));
 
 module.exports = Factory;
