@@ -25,11 +25,10 @@ class Model {
     }
     static async addEmployee(input) {
         try {
-            // console.log(input);
             const [id, name, ktp, joined_year, position, salary] = input;
             const companies = await this.getCompanies();
 
-            const companyFound = companies.find((company) => (company.id = id));
+            const companyFound = companies.find((company) => company.id == id);
             if (!companyFound) throw new Error(`Company not found `);
 
             const newEmployee = Factory.createEmployee(
