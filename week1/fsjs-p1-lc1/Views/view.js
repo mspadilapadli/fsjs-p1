@@ -20,10 +20,12 @@ Address: ${address}`);
                 ktp: ktp,
                 joined_year: joined_year,
                 position: position,
-                lengthOfWork: employee.lengthOfWork(),
+                lengthOfWork: employee.lengthOfWork, // witout invoke () if getter
+                // lengthOfWork: employee.lengthOfWork(), // invoke () if use instace method
                 salary: employee.applySalary(),
             };
         });
+
         console.table(employees);
     }
 
