@@ -89,11 +89,32 @@ class Factory {
     }
 }
 
-// testing factory method with sync fs in commonjs
+// testing factory method with sync & async fs in commonjs
 // Sync
 // const fs = require("fs");
 // const companies = JSON.parse(fs.readFileSync("../data.json", "utf-8"));
 // console.log(Factory.createCompanies(companies));
 // console.log(Factory.createEmployees(companies[0].employees));
+
+//async
+// const fs = require("fs").promises;
+// const fs = require("fs/promises");
+// const test = async () => {
+//     const companies = JSON.parse(await fs.readFile("../data.json", "utf-8"));
+//     return Factory.createCompanies(companies);
+// };
+
+// test();
+
+// (async () => {
+//     try {
+//         const companies = JSON.parse(
+//             await fs.readFile("../data.json", "utf-8")
+//         );
+//         console.log(Factory.createCompanies(companies));
+//     } catch (error) {
+//         console.log(error);
+//     }
+// })();
 
 module.exports = Factory;
