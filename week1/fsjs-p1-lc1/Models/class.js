@@ -25,13 +25,18 @@ class Employee {
         this.#salary = value;
     }
 
-    lengthOfWork() {
+    //* instance method
+    // lengthOfWork() {
+    //     return 2023 - this.joined_year;
+    // }
+    //* getter (better use getter cuz for property)
+    get lengthOfWork() {
         return 2023 - this.joined_year;
+        // return new Date().getFullYear() - this.joined_year; // if dynamic year
     }
     applySalary() {
-        const lengthOfWork = this.lengthOfWork();
-        return lengthOfWork >= 1
-            ? (this.#salary += this.#salary * 0.1)
+        return this.lengthOfWork >= 1
+            ? (this.#salary += this.#salary * 0.1) // (this.#salary * 1.1)
             : this.#salary;
     }
 
@@ -56,7 +61,7 @@ class Manager extends Employee {
         super(name, ktp, joined_year, "Manager", salary);
     }
     applySalary() {
-        const lengthOfWork = super.lengthOfWork();
+        const lengthOfWork = super.lengthOfWork;
         return lengthOfWork >= 1
             ? (this.salary += this.salary * 0.15)
             : this.salary;
