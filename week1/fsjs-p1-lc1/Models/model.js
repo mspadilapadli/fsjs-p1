@@ -40,7 +40,7 @@ class Model {
             );
             companyFound.employees.push(newEmployee);
 
-            this.#saveFile(companies);
+            await this.#saveFile(companies);
 
             return newEmployee;
         } catch (error) {
