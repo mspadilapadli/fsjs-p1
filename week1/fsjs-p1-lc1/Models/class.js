@@ -63,7 +63,7 @@ class Manager extends Employee {
     applySalary() {
         const lengthOfWork = super.lengthOfWork;
         return lengthOfWork >= 1
-            ? (this.salary += this.salary * 0.15)
+            ? (this.salary += this.salary * 0.15) // this.setsalary = this.getsalary + this.getsalary * 0.15
             : this.salary;
     }
 }
