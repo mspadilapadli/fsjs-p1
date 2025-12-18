@@ -14,7 +14,7 @@ Since: ${since}
 Address: ${address}`);
 
         employees = employees.map((employee) => {
-            let { name, ktp, joined_year, position, salary } = employee;
+            let { name, ktp, joined_year, position } = employee;
             return {
                 name: name,
                 ktp: ktp,
